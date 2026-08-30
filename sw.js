@@ -1,4 +1,4 @@
-const CACHE='aae-treino-v2-videos';
+const CACHE='aae-treino-v3-video-em-treino';
 const ASSETS=['./','./index.html','./manifest.json','./icon-192.png','./icon-512.png'];
 self.addEventListener('install',event=>{
   self.skipWaiting();
