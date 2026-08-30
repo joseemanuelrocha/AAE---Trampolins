@@ -1,0 +1,254 @@
+<!doctype html>
+<html lang="pt-PT">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <meta name="theme-color" content="#0b1f3a" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <title>AAE Trampolins — Semana 1</title>
+  <link rel="manifest" href="manifest.json" />
+  <style>
+    :root{
+      --bg:#eef2f6; --panel:#fff; --ink:#162235; --muted:#6a7687;
+      --navy:#0b1f3a; --blue:#1f5f99; --line:#dce3eb; --green:#2d7d46;
+      --amber:#a46709; --red:#b74141; --soft:#f6f8fb; --radius:18px;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;background:var(--bg);color:var(--ink)}
+    button,select,input,textarea{font:inherit}
+    .app{max-width:1080px;margin:0 auto;min-height:100vh;padding-bottom:92px}
+    header{background:linear-gradient(135deg,var(--navy),#174d78);color:white;padding:20px 18px 18px;position:sticky;top:0;z-index:20;box-shadow:0 6px 18px rgba(11,31,58,.16)}
+    .topline{display:flex;gap:14px;align-items:center;justify-content:space-between}
+    .brand{display:flex;align-items:center;gap:12px}
+    .mark{width:48px;height:48px;border-radius:14px;background:white;color:var(--navy);display:grid;place-items:center;font-weight:900;letter-spacing:.5px}
+    h1{font-size:20px;line-height:1.15;margin:0}.sub{opacity:.8;font-size:12px;margin-top:4px}
+    .group-switch{display:flex;background:rgba(255,255,255,.12);padding:4px;border-radius:12px;gap:4px}
+    .group-switch button{border:0;background:transparent;color:white;font-weight:800;padding:8px 12px;border-radius:9px;cursor:pointer}
+    .group-switch button.active{background:white;color:var(--navy)}
+    .days{display:flex;gap:8px;overflow:auto;padding:14px 18px 2px;scrollbar-width:none}.days::-webkit-scrollbar{display:none}
+    .daybtn{border:1px solid rgba(255,255,255,.25);background:rgba(255,255,255,.08);color:white;padding:9px 12px;border-radius:12px;white-space:nowrap;cursor:pointer;font-weight:750}
+    .daybtn.active{background:white;color:var(--navy)}
+    main{padding:18px}
+    .hero{background:var(--panel);border-radius:var(--radius);padding:18px;box-shadow:0 4px 18px rgba(23,39,61,.08);margin-bottom:14px}
+    .hero-top{display:flex;justify-content:space-between;align-items:start;gap:12px}
+    .hero h2{margin:0 0 5px;font-size:22px}.hero p{margin:0;color:var(--muted)}
+    .load{font-size:12px;font-weight:800;background:#e8eef6;color:var(--navy);padding:7px 9px;border-radius:999px;white-space:nowrap}
+    .progress-wrap{margin-top:16px}.progress-line{height:10px;background:#e9eef4;border-radius:99px;overflow:hidden}.progress{height:100%;background:linear-gradient(90deg,#2d7d46,#55a66f);width:0}.progress-meta{display:flex;justify-content:space-between;margin-top:6px;font-size:12px;color:var(--muted)}
+    .session-meta{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:14px}.meta-box{background:var(--soft);padding:10px;border-radius:12px}.meta-box b{display:block;font-size:14px}.meta-box span{font-size:11px;color:var(--muted)}
+    .section{margin:18px 0}.section-title{display:flex;align-items:center;justify-content:space-between;margin-bottom:9px}.section-title h3{margin:0;font-size:17px}.badge{font-size:11px;background:#e8eef6;color:var(--navy);padding:5px 8px;border-radius:999px;font-weight:800}
+    .cards{display:grid;gap:10px}.card{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:13px;box-shadow:0 2px 10px rgba(23,39,61,.05)}
+    .card-head{display:flex;align-items:flex-start;gap:11px}.num{width:34px;height:34px;flex:0 0 34px;border-radius:10px;background:#eaf0f7;color:var(--navy);display:grid;place-items:center;font-weight:900}.title{font-weight:850;line-height:1.25}.cue{font-size:12px;color:var(--muted);margin-top:3px;line-height:1.35}
+    .timing{display:flex;gap:7px;flex-wrap:wrap;margin:11px 0 10px}.pill{background:var(--soft);border:1px solid var(--line);padding:6px 8px;border-radius:999px;font-size:12px;font-weight:750}.pill strong{color:var(--blue)}
+    .actions{display:flex;gap:7px;flex-wrap:wrap}.btn{border:0;border-radius:10px;padding:9px 11px;font-weight:800;cursor:pointer}.btn.primary{background:var(--navy);color:white}.btn.secondary{background:#e8eef6;color:var(--navy)}.btn.video{background:#eff6ff;color:#1a5d99}.btn.ghost{background:transparent;border:1px solid var(--line);color:var(--muted)}
+    .tracking{display:grid;grid-template-columns:1fr 100px;gap:8px;margin-top:10px}.tracking select,.tracking input,.notes textarea{width:100%;border:1px solid var(--line);background:white;border-radius:10px;padding:8px;color:var(--ink)}
+    .notes{margin-top:9px}.notes textarea{resize:vertical;min-height:58px}
+    .status-done{border-color:#9bc6a8;background:#fbfffc}.status-adapted{border-color:#e3c38b;background:#fffdf8}.status-skip{opacity:.65}
+    .footer-panel{background:var(--panel);border-radius:16px;padding:14px;margin-top:18px;border:1px solid var(--line)}.footer-panel h3{margin:0 0 10px}.rpe-row{display:grid;grid-template-columns:1fr 100px;gap:8px}.small{font-size:12px;color:var(--muted)}
+    .reset{margin-top:10px}
+    .timer-modal{position:fixed;inset:0;background:rgba(4,13,25,.76);display:none;align-items:center;justify-content:center;padding:18px;z-index:100}.timer-modal.show{display:flex}.timer-box{width:min(520px,100%);background:white;border-radius:24px;padding:22px;text-align:center;box-shadow:0 24px 80px rgba(0,0,0,.35)}
+    .timer-label{font-size:13px;color:var(--muted);font-weight:800;text-transform:uppercase;letter-spacing:.08em}.timer-name{font-size:19px;font-weight:900;margin:7px 0}.timer-phase{font-size:14px;font-weight:900;color:var(--blue);margin-top:6px}.clock{font-variant-numeric:tabular-nums;font-size:72px;font-weight:950;letter-spacing:-4px;margin:14px 0 5px}.round{font-size:13px;color:var(--muted)}.timer-actions{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-top:16px}.timer-actions button{border:0;border-radius:12px;padding:12px;font-weight:900;cursor:pointer}.start{background:var(--green);color:white}.pause{background:#e8eef6;color:var(--navy)}.close{background:#f5eaea;color:var(--red)}
+    .tip{background:#fff8e8;border:1px solid #efd598;border-radius:14px;padding:11px 12px;font-size:12px;line-height:1.45;margin:12px 0;color:#6c4a12}
+    .install{position:fixed;left:12px;right:12px;bottom:12px;max-width:1056px;margin:auto;background:var(--navy);color:white;border-radius:16px;padding:11px 12px;display:flex;align-items:center;justify-content:space-between;gap:10px;z-index:40;box-shadow:0 8px 28px rgba(11,31,58,.28)}.install.hidden{display:none}.install span{font-size:12px;opacity:.9}.install button{border:0;background:white;color:var(--navy);font-weight:900;border-radius:10px;padding:9px 10px;cursor:pointer;white-space:nowrap}
+    @media(min-width:760px){.cards{grid-template-columns:1fr 1fr}.session-meta{grid-template-columns:repeat(4,1fr)}.tracking{grid-template-columns:1fr 120px}.hero h2{font-size:25px}}
+    @media(max-width:540px){.group-switch button{padding:7px 10px}.clock{font-size:62px}.session-meta{grid-template-columns:1fr 1fr}.tracking{grid-template-columns:1fr}.topline{align-items:flex-start}}
+  </style>
+</head>
+<body>
+<div class="app">
+<header>
+  <div class="topline">
+    <div class="brand"><div class="mark">AAE</div><div><h1>Trampolins — Semana 1</h1><div class="sub">Regresso aos treinos · versão piloto</div></div></div>
+    <div class="group-switch"><button id="g1b" class="active" onclick="setGroup('1B')">1B</button><button id="g1a" onclick="setGroup('1A')">1A</button></div>
+  </div>
+  <div class="days" id="days"></div>
+</header>
+<main>
+  <section class="hero">
+    <div class="hero-top"><div><h2 id="dayTitle"></h2><p id="dayGoal"></p></div><div class="load" id="dayLoad"></div></div>
+    <div class="progress-wrap"><div class="progress-line"><div class="progress" id="progress"></div></div><div class="progress-meta"><span id="progressText"></span><span id="doneText"></span></div></div>
+    <div class="session-meta" id="sessionMeta"></div>
+  </section>
+  <div class="tip"><b>Regra da semana:</b> se a postura, a receção ou a qualidade do movimento piorarem, interromper o bloco antes do tempo. Nesta fase, qualidade > volume.</div>
+  <div id="content"></div>
+  <section class="footer-panel">
+    <h3>Registo da sessão</h3>
+    <div class="rpe-row"><div><label class="small">Esforço global da sessão (RPE 1–10)</label><input id="sessionRpe" type="range" min="1" max="10" value="5" oninput="rpeValue.textContent=this.value;saveSessionMeta()"><div class="small">RPE: <b id="rpeValue">5</b>/10</div></div><div><label class="small">Estado</label><select id="sessionStatus" onchange="saveSessionMeta()"><option>Por fazer</option><option>Concluída</option><option>Adaptada</option><option>Parcial</option></select></div></div>
+    <div class="notes"><label class="small">Observações do treinador</label><textarea id="sessionNotes" placeholder="Ex.: fadiga, dores, adaptação de carga, qualidade técnica..." oninput="saveSessionMeta()"></textarea></div>
+    <button class="btn ghost reset" onclick="resetDay()">Limpar registos deste dia</button>
+  </section>
+</main>
+</div>
+
+<div class="timer-modal" id="timerModal">
+  <div class="timer-box">
+    <div class="timer-label">Cronómetro</div><div class="timer-name" id="timerName"></div><div class="timer-phase" id="timerPhase"></div>
+    <div class="clock" id="clock">00:30</div><div class="round" id="roundInfo"></div>
+    <div class="timer-actions"><button class="start" id="startBtn" onclick="timerStart()">Iniciar</button><button class="pause" onclick="timerPause()">Pausa</button><button class="close" onclick="timerClose()">Fechar</button></div>
+  </div>
+</div>
+<div class="install hidden" id="installBar"><span>Instalar esta app no ecrã inicial para acesso rápido no treino.</span><button id="installBtn">Instalar</button></div>
+
+<script>
+const videos={
+  'Ponte de glúteos':'https://www.youtube.com/watch?v=Z3cY3d3BBo4',
+  'Alternância braço-perna deitado':'https://vimeo.com/730115594',
+  'Y-T-W':'https://prophysiotherapy.in/exercises/prone-y-t-w',
+  'Equilíbrio numa perna':'https://www.youtube.com/watch?v=UrB5wA7B3hI',
+  'Saltos reativos de tornozelo':'https://www.peak-physio.com.au/exercise/pogo-jump/',
+  'Salto vertical com contramovimento':'https://www.youtube.com/watch?v=Z3c4QscD1UY',
+  'Salto horizontal + receção':'https://worldathletics.org/en/kids-athletics/teaching-athletics/horizontal-jump',
+  'Salto para caixa baixa':'https://www.youtube.com/watch?v=DXu-8TAJwi4',
+  'Bola medicinal acima da cabeça':'https://us.physitrack.com/home-exercise-video/medicine-ball-overhead-toss',
+  'Agachamento com halter':'https://www.youtube.com/watch?v=nfX7IFK9UNI',
+  'Peso morto romeno':'https://www.youtube.com/watch?v=2bmuYtv4HbQ',
+  'Agachamento búlgaro':'https://www.youtube.com/watch?v=hbw7hdyOpq0',
+  'Elevação da bacia':'https://library.theprehabguys.com/vimeo-video/american-hip-thrust/',
+  'Press anti-rotação':'https://www.catalystathletics.com/exercise/526/Pallof-Press/',
+  'Prancha lateral':'https://vimeo.com/662497117',
+  'Hollow / Arch':'https://www.youtube.com/watch?v=fBU5bTtcWhM',
+  'Tibial anterior':'https://ie.physitrack.com/home-exercise-video/toe-raises-with-support-%28tibialis-anterior-%29',
+  'Copenhagen':'https://vimeo.com/647962374',
+  'Remada':'https://www.youtube.com/watch?v=DmUX88nWClo',
+  'Flexões':'https://www.youtube.com/watch?v=WDIpL0pjun0'
+};
+
+const daysData=[
+ {key:'seg',label:'2.ª',title:'2.ª feira — Readaptação + força',goal:'Reativar mobilidade, básicos de ginástica, sensação de trampolim e força geral.',load:'55–60%',meta:['120 min','Ginástica básica','Trampolim básico','Força geral'],sections:[
+  {name:'Aquecimento geral',items:[
+   ex('Corrida ligeira','Elevar a temperatura sem fadiga',120,0,1,120,0,1),
+   ex('Deslocamento lateral','Postura alta e passos curtos',60,15,1,60,15,1),
+   ex('Corrida para trás','Passos controlados, olhar em frente',45,15,1,45,15,1),
+   ex('Skipping no solo','Frequência e coordenação',30,20,1,30,20,1),
+   ex('Calcanhares aos glúteos','Ritmo confortável',30,20,1,30,20,1)
+  ]},
+  {name:'Mobilidade e ativação',items:[
+   ex('Joelho à parede','Calcanhar sempre no chão',40,15,2,40,15,2),
+   ex('Afundo com rotação','Amplitude progressiva',45,15,1,45,15,1),
+   ex('Agachamento profundo','Manter calcanhares apoiados',30,15,1,30,15,1),
+   ex('Ponte de glúteos','Contrair glúteos no topo',30,20,2,35,20,2,'Ponte de glúteos'),
+   ex('Alternância braço-perna deitado','Lombar estável',30,20,2,35,20,2,'Alternância braço-perna deitado'),
+   ex('Y-T-W','Ombros baixos e escápulas ativas',40,20,1,45,20,1,'Y-T-W')
+  ]},
+  {name:'Ginástica básica',items:[
+   ex('Vela','Corpo alinhado, apoio alto nas omoplatas',20,20,2,30,20,2),
+   ex('Rolamento à frente','Queixo ao peito, costas arredondadas',40,30,3,40,30,3),
+   ex('Rolamento atrás','Mãos junto às orelhas, retirar carga da cabeça',40,40,3,40,40,3),
+   ex('Hollow / Arch','Alternar posição côncava e arqueada com controlo',20,20,2,30,20,2,'Hollow / Arch'),
+   ex('Pino à parede','Braços estendidos, ombros elevados, corpo apertado',20,40,3,30,45,3)
+  ]},
+  {name:'Trampolim — básicos e skipping',items:[
+   ex('Saltos básicos baixos','Centro do trampolim, altura baixa',30,30,2,40,25,2),
+   ex('Saltos básicos com braços','Coordenar braços sem perder eixo',30,30,2,40,25,2),
+   ex('Abertura/fecho','Ritmo e alinhamento',20,30,2,30,25,2),
+   ex('Skipping baixo no trampolim','Pés rápidos, baixa amplitude',20,30,2,30,30,2),
+   ex('Skipping alto no trampolim','Joelhos altos com controlo',20,35,2,30,30,2),
+   ex('Salto + estabilização','Parar e ficar imóvel',20,30,2,30,25,2)
+  ]},
+  {name:'Reforço muscular',items:[
+   ex('Agachamento com halter','Carga moderada; sem falha',35,25,2,35,25,3,'Agachamento com halter'),
+   ex('Peso morto romeno','Anca para trás, costas neutras',35,25,2,35,25,3,'Peso morto romeno'),
+   ex('Remada','Escápulas ativas',35,25,2,35,25,3,'Remada'),
+   ex('Flexões','Corpo alinhado',30,30,2,30,30,3,'Flexões'),
+   ex('Gémeos','Amplitude completa',30,20,2,30,20,3),
+   ex('Prancha frontal','Linha ombro-anca-pé',25,30,2,35,30,3)
+  ]},
+  {name:'Flexibilidade',items:[
+   ex('Pique','Alongar sem dor',30,20,1,30,20,1),
+   ex('Afastamento de pernas','Amplitude confortável',30,20,1,30,20,1),
+   ex('Espargata direita','Sem ajuda forçada',25,20,1,30,20,1),
+   ex('Espargata esquerda','Sem ajuda forçada',25,20,1,30,20,1),
+   ex('Flexores da anca','Bacia controlada',30,15,2,30,15,2),
+   ex('Ombros','Amplitude progressiva',30,15,1,30,15,1)
+  ]}
+ ]},
+ {key:'ter',label:'3.ª',title:'3.ª feira — Resistência + rolamentos',goal:'Recuperar capacidade aeróbia, resistência muscular e qualidade dos rolamentos.',load:'60–65%',meta:['120 min','15–20 min corrida','Ginástica básica','Resistência muscular'],sections:[
+  {name:'Aquecimento',items:[ex('Corrida muito ligeira','Ritmo fácil',180,0,1,180,0,1),ex('Mobilidade dinâmica','Tornozelo, anca, ombros e coluna',300,0,1,300,0,1)]},
+  {name:'Corrida de resistência',items:[ex('Corrida contínua','Ritmo de conversa; não é teste',900,180,1,1200,180,1)]},
+  {name:'Ginástica básica',items:[
+   ex('Rolamento à frente','Execução limpa',40,30,2,40,30,2),
+   ex('Rolamento atrás','Mãos bem colocadas',40,40,2,40,40,2),
+   ex('Rolamento à frente — pernas afastadas','Joelhos estendidos e terminar equilibrado',35,40,3,40,30,3),
+   ex('Roda','Linha no chão; transferência de peso pelas mãos',40,40,3,40,40,3),
+   ex('Pino à parede','Alinhamento antes da duração',20,40,2,30,40,2)
+  ]},
+  {name:'Trampolim — resistência específica',items:[
+   ex('Saltos básicos','Ritmo constante',30,20,3,45,20,4),
+   ex('Skipping baixo no trampolim','Frequência',20,30,3,30,25,4),
+   ex('Abertura/fecho','Manter centro',20,30,3,30,25,4),
+   ex('Skipping alto no trampolim','Joelhos altos sem perder postura',20,30,3,30,25,4),
+   ex('Saltos com braços','Ritmo + coordenação',30,30,3,45,20,4)
+  ]},
+  {name:'Resistência muscular',items:[
+   ex('Afundos alternados','Passo estável',30,30,2,35,25,3),ex('Flexões','Linha corporal',30,30,2,35,25,3,'Flexões'),ex('Remada','Escápulas ativas',30,30,2,35,25,3,'Remada'),ex('Gémeos','Amplitude completa',30,30,2,35,25,3),ex('Prancha lateral','Anca alta',25,20,2,30,20,3,'Prancha lateral'),ex('Tibial anterior','Subir antepé controladamente',30,30,2,35,25,3,'Tibial anterior')
+  ]},
+  {name:'Flexibilidade',items:[ex('Pique','Sem dor',30,20,1,30,20,1),ex('Afastamento','Amplitude controlada',30,20,1,30,20,1),ex('Espargata direita','Autónoma',30,20,1,30,20,1),ex('Espargata esquerda','Autónoma',30,20,1,30,20,1),ex('Elevação ativa da perna','Joelho estendido',30,15,2,30,15,2)]}
+ ]},
+ {key:'qua',label:'4.ª',title:'4.ª feira — Recuperação + flexibilidade',goal:'Reduzir carga mecânica, recuperar mobilidade e consolidar posições corporais.',load:'45–50%',meta:['120 min','Recuperação ativa','Ponte + pino','Prevenção'],sections:[
+  {name:'Recuperação ativa',items:[ex('Corrida muito leve','3–4/10 de esforço',600,120,1,600,120,1)]},
+  {name:'Mobilidade e flexibilidade',items:[ex('Tornozelo','Joelho à parede',40,15,2,40,15,2),ex('Posterior da coxa','Alongamento confortável',30,15,2,30,15,2),ex('Flexores da anca','Bacia neutra',30,15,2,30,15,2),ex('Afastamento','Amplitude sem forçar',30,20,2,30,20,2),ex('Ombros','Mobilidade antes da ponte',40,20,2,40,20,2)]},
+  {name:'Ginástica de controlo',items:[
+   ex('Ponte','Braços estendidos; abrir ombros, não forçar lombar',20,45,3,30,45,3),ex('Vela','Alinhamento',20,20,2,30,20,2),ex('Hollow / Arch','Controlo do tronco',20,20,2,30,20,2,'Hollow / Arch'),ex('Pino à parede','Qualidade de linha',20,45,2,30,45,2),ex('Equilíbrio numa perna','Estabilidade do pé e tornozelo',30,15,2,30,15,2,'Equilíbrio numa perna')
+  ]},
+  {name:'Trampolim leve',items:[ex('Saltos básicos baixos','Sem procurar altura',30,30,3,30,30,3),ex('Saltos com braços','Suave',30,30,3,30,30,3),ex('Skipping baixo','Baixa intensidade',20,40,3,20,40,3),ex('Deslocamentos pequenos frente/trás','Mínima amplitude',20,40,3,20,40,3),ex('Deslocamentos laterais','Controlados',20,40,3,20,40,3),ex('Salto + estabilização','Parar completamente',20,40,3,20,40,3)]},
+  {name:'Prevenção',items:[ex('Gémeos — joelho estendido','Controlo',30,20,2,30,20,2),ex('Gémeos — joelho fletido','Foco no sóleo',30,20,2,30,20,2),ex('Tibial anterior','Subir antepé',30,20,2,30,20,2,'Tibial anterior'),ex('Copenhagen','Joelho apoiado',20,20,2,25,20,2,'Copenhagen'),ex('Press anti-rotação','Tronco imóvel',30,20,2,30,20,2,'Press anti-rotação'),ex('Y-T-W','Escápulas ativas',40,20,2,40,20,2,'Y-T-W')]
+  }
+ ]},
+ {key:'qui',label:'5.ª',title:'5.ª feira — Pino + potência + força',goal:'Reintroduzir produção rápida de força, pino e progressão para pino-rolamento.',load:'65–70%',meta:['120 min','Pino','Potência','Força'],sections:[
+  {name:'Aquecimento e mobilidade',items:[ex('Aquecimento geral','Corrida ligeira + mobilidade dinâmica',600,0,1,600,0,1),ex('Mobilidade específica','Ombros, punhos, tornozelos e anca',420,0,1,480,0,1)]},
+  {name:'Ginástica — pino',items:[
+   ex('Pino à parede','Braços estendidos, corpo apertado',20,40,2,30,40,2),ex('Pino livre / com ajuda','Tentativas curtas e de qualidade',8,25,5,10,25,6),ex('Pino → rolamento à frente','Só se pino e rolamento forem seguros',10,50,4,12,40,5),ex('Snap-down / queda para receção','Chegar ao chão e estabilizar',12,45,2,15,45,3)
+  ]},
+  {name:'Potência no solo',items:[
+   ex('Saltos reativos de tornozelo','Rápidos e elásticos',10,50,3,15,60,3,'Saltos reativos de tornozelo'),ex('Salto vertical com contramovimento','3 saltos de qualidade',15,60,2,15,60,3,'Salto vertical com contramovimento'),ex('Salto horizontal + receção','Parar imóvel',15,60,2,15,60,3,'Salto horizontal + receção'),ex('Salto para caixa baixa','Receção silenciosa e estável',15,70,2,15,70,3,'Salto para caixa baixa'),ex('Bola medicinal acima da cabeça','Lançamento explosivo',20,60,2,20,60,3,'Bola medicinal acima da cabeça')
+  ]},
+  {name:'Trampolim — potência controlada',items:[ex('Saltos básicos progressivos','Baixo → médio; manter controlo',20,40,3,20,40,4),ex('Skipping rápido','Máxima frequência com postura',15,45,3,15,45,4),ex('Skipping alto','Joelhos altos',20,40,3,20,40,4),ex('Saltos básicos altos','Qualidade e eixo',20,50,3,20,50,4),ex('Abertura/fecho dinâmica','Rápida mas limpa',20,40,3,20,40,4),ex('3 saltos progressivos + estabilização','Terminar imóvel',15,45,3,15,45,4)]},
+  {name:'Força',items:[ex('Agachamento búlgaro','Carga moderada',30,30,2,40,25,3,'Agachamento búlgaro'),ex('Peso morto romeno','Anca para trás',30,30,2,40,25,3,'Peso morto romeno'),ex('Elevação da bacia','Extensão completa da anca',30,30,2,40,25,3,'Elevação da bacia'),ex('Remada','Escápulas ativas',30,30,2,40,25,3,'Remada'),ex('Press anti-rotação','Tronco imóvel',30,30,2,35,25,3,'Press anti-rotação'),ex('Gémeos','Amplitude completa',30,25,2,35,25,3)]},
+  {name:'Flexibilidade',items:[ex('Pique','Sem dor',30,20,1,30,20,1),ex('Afastamento','Controlado',30,20,1,30,20,1),ex('Espargata direita','Autónoma',30,20,1,30,20,1),ex('Espargata esquerda','Autónoma',30,20,1,30,20,1),ex('Ombros / ponte leve','Sem forçar lombar',30,20,1,30,20,1)]}
+ ]},
+ {key:'sex',label:'6.ª',title:'6.ª feira — Escadas + circuito gímnico',goal:'Trabalhar resistência muscular, coordenação, básicos no solo e resistência específica.',load:'60–65%',meta:['120 min','Escadas','Circuito gímnico','Resistência específica'],sections:[
+  {name:'Aquecimento',items:[ex('Corrida ligeira','Ritmo fácil',180,0,1,180,0,1),ex('Mobilidade dinâmica','Tornozelo, joelho, anca e ombros',420,0,1,420,0,1)]},
+  {name:'Escadas',items:[
+   ex('Subida normal','Descer sempre a andar',20,60,3,25,55,3),ex('Dois degraus de cada vez','Subida controlada',20,70,2,20,65,3),ex('Subida rápida','Rápida a subir; nunca correr a descer',15,75,2,20,80,2)
+  ]},
+  {name:'Circuito de ginástica básica',items:[
+   ex('Rolamento à frente','Limpo e controlado',35,25,2,40,20,3),ex('Rolamento atrás','Mãos bem posicionadas',35,25,2,40,20,3),ex('Rolamento — pernas afastadas','Joelhos estendidos',35,25,2,40,20,3),ex('Pino','Parede ou livre conforme nível',35,25,2,40,20,3),ex('Ponte','Ombros abertos',35,25,2,40,20,3),ex('Roda','Linha corporal',35,25,2,40,20,3),ex('Hollow / Arch','Forma corporal',35,25,2,40,20,3,'Hollow / Arch'),ex('Vela','Alinhamento',35,25,2,40,20,3),ex('Pino → rolamento','Só para ginastas tecnicamente preparados',25,35,2,30,30,2)
+  ]},
+  {name:'Trampolim — resistência específica',items:[ex('Saltos básicos','Ritmo constante',30,30,3,45,25,3),ex('Skipping baixo','Frequência',25,35,3,30,30,3),ex('Abertura/fecho','Centro do trampolim',25,35,3,30,30,3),ex('Skipping alto','Coordenação',20,40,3,30,30,3),ex('Saltos com braços','Ritmo e alinhamento',30,30,3,40,30,3),ex('Salto + estabilização','Parar imóvel',20,40,3,25,35,3)]},
+  {name:'Resistência muscular',items:[ex('Agachamento','Sem carga máxima',30,30,2,40,20,2),ex('Remada','Escápulas ativas',30,30,2,40,20,2,'Remada'),ex('Flexões','Corpo alinhado',30,30,2,40,20,2,'Flexões'),ex('Ponte de glúteos','Glúteos ativos',30,30,2,40,20,2,'Ponte de glúteos'),ex('Prancha lateral','Anca alta',25,25,2,35,20,2,'Prancha lateral'),ex('Tibial anterior','Controlo',30,30,2,40,20,2,'Tibial anterior'),ex('Y-T-W','Qualidade do ombro',30,30,2,35,25,2,'Y-T-W')]
+  },
+  {name:'Flexibilidade final',items:[ex('Pique','Sem dor',30,15,2,30,15,2),ex('Afastamento','Amplitude confortável',30,15,2,30,15,2),ex('Espargata direita','Autónoma',30,15,2,30,15,2),ex('Espargata esquerda','Autónoma',30,15,2,30,15,2),ex('Flexores da anca','Bacia neutra',30,15,2,30,15,2),ex('Ombros','Progressivo',30,15,2,30,15,2),ex('Ponte leve','Só se confortável',20,30,1,25,30,1)]}
+ ]}
+];
+function ex(name,cue,wB,rB,nB,wA,rA,nA,videoKey){return {name,cue,'1B':{w:wB,r:rB,n:nB},'1A':{w:wA,r:rA,n:nA},video:videos[videoKey||name]||null}}
+let group=localStorage.getItem('aae_group')||'1B'; let dayKey=localStorage.getItem('aae_day')||'seg';
+function storeKey(suffix){return `aae_w1_${group}_${dayKey}_${suffix}`}
+function fmt(s){ if(!s) return '—'; if(s>=60){let m=Math.floor(s/60),sec=s%60; return sec?`${m} min ${sec} s`:`${m} min`;} return `${s} s`; }
+function render(){document.getElementById('g1b').classList.toggle('active',group==='1B');document.getElementById('g1a').classList.toggle('active',group==='1A');
+ const days=document.getElementById('days');days.innerHTML=daysData.map(d=>`<button class="daybtn ${d.key===dayKey?'active':''}" onclick="setDay('${d.key}')">${d.label}</button>`).join('');
+ const d=daysData.find(x=>x.key===dayKey);document.getElementById('dayTitle').textContent=d.title;document.getElementById('dayGoal').textContent=d.goal;document.getElementById('dayLoad').textContent=`Carga ${d.load}`;
+ document.getElementById('sessionMeta').innerHTML=d.meta.map(x=>`<div class="meta-box"><b>${x}</b><span>${group}</span></div>`).join('');
+ let html=''; let idx=0; d.sections.forEach(sec=>{html+=`<section class="section"><div class="section-title"><h3>${sec.name}</h3><span class="badge">${sec.items.length} exercícios</span></div><div class="cards">`;sec.items.forEach(item=>{idx++;const t=item[group];const k=storeKey('ex_'+idx);const saved=JSON.parse(localStorage.getItem(k)||'{}');const st=saved.status||'Por fazer';const cls=st==='Concluído'?'status-done':st==='Adaptado'?'status-adapted':st==='Não realizado'?'status-skip':'';
+ html+=`<article class="card ${cls}" id="card_${idx}"><div class="card-head"><div class="num">${idx}</div><div><div class="title">${item.name}</div><div class="cue">${item.cue}</div></div></div><div class="timing"><span class="pill">Trabalho <strong>${fmt(t.w)}</strong></span><span class="pill">Descanso <strong>${fmt(t.r)}</strong></span><span class="pill">Repetições <strong>${t.n}×</strong></span></div><div class="actions"><button class="btn primary" onclick='openTimer(${JSON.stringify(item.name)},${t.w},${t.r},${t.n})'>▶ Iniciar</button>${item.video?`<button class="btn video" onclick="window.open('${item.video}','_blank')">🎥 Vídeo</button>`:''}<button class="btn secondary" onclick="markDone(${idx})">✓ Concluir</button></div><div class="tracking"><select onchange="saveExercise(${idx},this.value,null)"><option ${st==='Por fazer'?'selected':''}>Por fazer</option><option ${st==='Concluído'?'selected':''}>Concluído</option><option ${st==='Adaptado'?'selected':''}>Adaptado</option><option ${st==='Não realizado'?'selected':''}>Não realizado</option></select><input type="number" min="1" max="10" placeholder="RPE" value="${saved.rpe||''}" onchange="saveExercise(${idx},null,this.value)"></div><div class="notes"><textarea placeholder="Nota rápida..." oninput="saveExerciseNote(${idx},this.value)">${saved.note||''}</textarea></div></article>`});html+='</div></section>'});document.getElementById('content').innerHTML=html; loadSessionMeta();updateProgress();}
+function setGroup(g){group=g;localStorage.setItem('aae_group',g);render()} function setDay(k){dayKey=k;localStorage.setItem('aae_day',k);render()}
+function saveExercise(idx,status,rpe){const k=storeKey('ex_'+idx),v=JSON.parse(localStorage.getItem(k)||'{}');if(status!==null)v.status=status;if(rpe!==null)v.rpe=rpe;localStorage.setItem(k,JSON.stringify(v));render()}
+function saveExerciseNote(idx,note){const k=storeKey('ex_'+idx),v=JSON.parse(localStorage.getItem(k)||'{}');v.note=note;localStorage.setItem(k,JSON.stringify(v));}
+function markDone(idx){saveExercise(idx,'Concluído',null)}
+function countItems(){return daysData.find(x=>x.key===dayKey).sections.reduce((a,s)=>a+s.items.length,0)}
+function updateProgress(){let total=countItems(),done=0;for(let i=1;i<=total;i++){let v=JSON.parse(localStorage.getItem(storeKey('ex_'+i))||'{}');if(v.status==='Concluído'||v.status==='Adaptado')done++}let p=total?Math.round(done/total*100):0;document.getElementById('progress').style.width=p+'%';document.getElementById('progressText').textContent=`Progresso ${p}%`;document.getElementById('doneText').textContent=`${done}/${total} concluídos`;}
+function saveSessionMeta(){localStorage.setItem(storeKey('session'),JSON.stringify({rpe:document.getElementById('sessionRpe').value,status:document.getElementById('sessionStatus').value,notes:document.getElementById('sessionNotes').value}))}
+function loadSessionMeta(){let v=JSON.parse(localStorage.getItem(storeKey('session'))||'{}');document.getElementById('sessionRpe').value=v.rpe||5;document.getElementById('rpeValue').textContent=v.rpe||5;document.getElementById('sessionStatus').value=v.status||'Por fazer';document.getElementById('sessionNotes').value=v.notes||''}
+function resetDay(){if(!confirm('Limpar todos os registos deste dia para '+group+'?'))return;let n=countItems();for(let i=1;i<=n;i++)localStorage.removeItem(storeKey('ex_'+i));localStorage.removeItem(storeKey('session'));render()}
+let timer={name:'',work:30,rest:30,rounds:1,round:1,phase:'Trabalho',left:30,id:null,running:false};
+function openTimer(name,w,r,n){timerClose();timer={name,work:w,rest:r,rounds:n,round:1,phase:'Trabalho',left:w,id:null,running:false};document.getElementById('timerModal').classList.add('show');paintTimer()}
+function paintTimer(){document.getElementById('timerName').textContent=timer.name;document.getElementById('timerPhase').textContent=timer.phase;let m=String(Math.floor(timer.left/60)).padStart(2,'0'),s=String(timer.left%60).padStart(2,'0');document.getElementById('clock').textContent=`${m}:${s}`;document.getElementById('roundInfo').textContent=`Bloco ${timer.round} de ${timer.rounds}`;document.getElementById('startBtn').textContent=timer.running?'A decorrer':'Iniciar'}
+function beep(){try{const ctx=new (window.AudioContext||window.webkitAudioContext)();const o=ctx.createOscillator(),g=ctx.createGain();o.connect(g);g.connect(ctx.destination);o.frequency.value=780;g.gain.value=.08;o.start();o.stop(ctx.currentTime+.12)}catch(e){}}
+function timerStart(){if(timer.running)return;timer.running=true;paintTimer();timer.id=setInterval(()=>{timer.left--;if(timer.left<=0){beep();if(timer.phase==='Trabalho'&&timer.rest>0){timer.phase='Descanso';timer.left=timer.rest}else if(timer.round<timer.rounds){timer.round++;timer.phase='Trabalho';timer.left=timer.work}else{clearInterval(timer.id);timer.id=null;timer.running=false;timer.phase='Concluído';timer.left=0;beep()} }paintTimer()},1000)}
+function timerPause(){if(timer.id){clearInterval(timer.id);timer.id=null}timer.running=false;paintTimer()}
+function timerClose(){if(timer.id)clearInterval(timer.id);timer.id=null;timer.running=false;document.getElementById('timerModal').classList.remove('show')}
+if('serviceWorker' in navigator){window.addEventListener('load',()=>navigator.serviceWorker.register('sw.js').catch(()=>{}))}
+let deferredPrompt=null;window.addEventListener('beforeinstallprompt',e=>{e.preventDefault();deferredPrompt=e;document.getElementById('installBar').classList.remove('hidden')});document.getElementById('installBtn').onclick=async()=>{if(!deferredPrompt)return;deferredPrompt.prompt();await deferredPrompt.userChoice;deferredPrompt=null;document.getElementById('installBar').classList.add('hidden')};
+render();
+</script>
+</body>
+</html>

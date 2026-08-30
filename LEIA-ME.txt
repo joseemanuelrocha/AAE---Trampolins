@@ -1,0 +1,17 @@
+AAE TRAMPOLINS — APP PILOTO SEMANA 1
+
+Ficheiros:
+- index.html: aplicação
+- manifest.json + sw.js: instalação como PWA quando publicada num endereço HTTPS
+- icon-192.png / icon-512.png: ícones
+
+TESTE NO COMPUTADOR
+1. Abra index.html num navegador moderno.
+2. Escolha 1A ou 1B e o dia da semana.
+3. Use Iniciar para o cronómetro, Vídeo para a demonstração e Concluir/Estado/RPE para registar o treino.
+
+DADOS
+Os estados, RPE e observações ficam guardados localmente no dispositivo/navegador através de localStorage.
+
+INSTALAÇÃO NO TELEMÓVEL
+Para aparecer como uma app no ecrã inicial com funcionamento PWA completo, estes ficheiros devem ser publicados num endereço HTTPS (por exemplo, num alojamento web ou GitHub Pages). Depois o navegador apresentará a opção Instalar/Adicionar ao ecrã principal.
