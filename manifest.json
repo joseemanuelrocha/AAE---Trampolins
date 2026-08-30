@@ -1,13 +1,24 @@
 {
-  "name":"AAE Trampolins — Semana 1",
-  "short_name":"AAE Treino",
-  "start_url":"./index.html",
-  "display":"standalone",
-  "background_color":"#eef2f6",
-  "theme_color":"#0b1f3a",
-  "description":"App piloto para a Semana 1 de regresso aos treinos — Competição 1A e 1B.",
-  "icons":[
-    {"src":"icon-192.png","sizes":"192x192","type":"image/png"},
-    {"src":"icon-512.png","sizes":"512x512","type":"image/png"}
+  "name": "AAE Trampolins — Semana 1 com Vídeos",
+  "short_name": "AAE Treino",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#eef2f6",
+  "theme_color": "#0b1f3a",
+  "description": "Semana 1 de regresso aos treinos — Competição 1A e 1B, com ginástica básica, flexibilidade e vídeos demonstrativos.",
+  "icons": [
+    {
+      "src": "icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
   ]
 }

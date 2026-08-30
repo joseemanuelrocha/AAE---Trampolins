@@ -1,17 +1,23 @@
-AAE TRAMPOLINS — APP PILOTO SEMANA 1
+AAE TRAMPOLINS — APP SEMANA 1 · V2 COM VÍDEOS
 
-Ficheiros:
-- index.html: aplicação
-- manifest.json + sw.js: instalação como PWA quando publicada num endereço HTTPS
-- icon-192.png / icon-512.png: ícones
+NOVIDADES DESTA VERSÃO
+- Ginástica básica integrada no plano: rolamentos, pino, ponte, roda, vela, pino-rolamento e snap-down.
+- Flexibilidade integrada: pique, afastamento, espargatas, flexores da anca e ombros.
+- Botão “🎥 Ver exemplo” nos exercícios com demonstração técnica.
+- Atualização do service worker para facilitar futuras atualizações no GitHub Pages.
 
-TESTE NO COMPUTADOR
-1. Abra index.html num navegador moderno.
-2. Escolha 1A ou 1B e o dia da semana.
-3. Use Iniciar para o cronómetro, Vídeo para a demonstração e Concluir/Estado/RPE para registar o treino.
+FICHEIROS A CARREGAR NO GITHUB
+- index.html
+- manifest.json
+- sw.js
+- icon-192.png
+- icon-512.png
+
+ATUALIZAR A APP NO GITHUB
+No repositório AAE-Trampolins, carregar os ficheiros acima novamente e confirmar a substituição/commit. O GitHub Pages mantém o mesmo endereço.
 
 DADOS
-Os estados, RPE e observações ficam guardados localmente no dispositivo/navegador através de localStorage.
+Estados, RPE e observações continuam guardados localmente no dispositivo/navegador.
 
-INSTALAÇÃO NO TELEMÓVEL
-Para aparecer como uma app no ecrã inicial com funcionamento PWA completo, estes ficheiros devem ser publicados num endereço HTTPS (por exemplo, num alojamento web ou GitHub Pages). Depois o navegador apresentará a opção Instalar/Adicionar ao ecrã principal.
+NOTA
+Os vídeos são referências técnicas externas. Devem ser usados como demonstração visual sob supervisão do treinador; a execução no treino segue sempre as progressões e regras de segurança definidas pela equipa técnica.

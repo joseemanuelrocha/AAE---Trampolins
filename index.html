@@ -6,7 +6,7 @@
   <meta name="theme-color" content="#0b1f3a" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-  <title>AAE Trampolins — Semana 1</title>
+  <title>AAE Trampolins — Semana 1 · Vídeos</title>
   <link rel="manifest" href="manifest.json" />
   <style>
     :root{
@@ -58,7 +58,7 @@
 <div class="app">
 <header>
   <div class="topline">
-    <div class="brand"><div class="mark">AAE</div><div><h1>Trampolins — Semana 1</h1><div class="sub">Regresso aos treinos · versão piloto</div></div></div>
+    <div class="brand"><div class="mark">AAE</div><div><h1>Trampolins — Semana 1</h1><div class="sub">Regresso aos treinos · v2 com vídeos demonstrativos</div></div></div>
     <div class="group-switch"><button id="g1b" class="active" onclick="setGroup('1B')">1B</button><button id="g1a" onclick="setGroup('1A')">1A</button></div>
   </div>
   <div class="days" id="days"></div>
@@ -69,7 +69,7 @@
     <div class="progress-wrap"><div class="progress-line"><div class="progress" id="progress"></div></div><div class="progress-meta"><span id="progressText"></span><span id="doneText"></span></div></div>
     <div class="session-meta" id="sessionMeta"></div>
   </section>
-  <div class="tip"><b>Regra da semana:</b> se a postura, a receção ou a qualidade do movimento piorarem, interromper o bloco antes do tempo. Nesta fase, qualidade > volume.</div>
+  <div class="tip"><b>Regra da semana:</b> se a postura, a receção ou a qualidade do movimento piorarem, interromper o bloco antes do tempo. Nesta fase, qualidade > volume. <b>🎥 Ver exemplo</b> abre uma demonstração técnica do exercício.</div>
   <div id="content"></div>
   <section class="footer-panel">
     <h3>Registo da sessão</h3>
@@ -110,7 +110,30 @@ const videos={
   'Tibial anterior':'https://ie.physitrack.com/home-exercise-video/toe-raises-with-support-%28tibialis-anterior-%29',
   'Copenhagen':'https://vimeo.com/647962374',
   'Remada':'https://www.youtube.com/watch?v=DmUX88nWClo',
-  'Flexões':'https://www.youtube.com/watch?v=WDIpL0pjun0'
+  'Flexões':'https://www.youtube.com/watch?v=WDIpL0pjun0',
+  'Rolamento à frente':'https://www.youtube.com/watch?v=KCb6cehtmcw',
+  'Rolamento atrás':'https://www.youtube.com/watch?v=BaPfU4HHCkg',
+  'Rolamento à frente — pernas afastadas':'https://www.youtube.com/watch?v=lQNM-Ryru-A',
+  'Rolamento — pernas afastadas':'https://www.youtube.com/watch?v=lQNM-Ryru-A',
+  'Pino à parede':'https://www.youtube.com/watch?v=F3EH9pxNSGs',
+  'Pino':'https://www.youtube.com/watch?v=F3EH9pxNSGs',
+  'Pino livre / com ajuda':'https://www.youtube.com/watch?v=F3EH9pxNSGs',
+  'Pino → rolamento à frente':'https://www.youtube.com/watch?v=QDDx8CL2NKg',
+  'Pino → rolamento':'https://www.youtube.com/watch?v=QDDx8CL2NKg',
+  'Ponte':'https://gymnasticshq.com/how-to-do-a-bridge/',
+  'Ponte leve':'https://gymnasticshq.com/how-to-do-a-bridge/',
+  'Roda':'https://www.youtube.com/watch?v=a_zI6XrUEHk',
+  'Vela':'https://www.youtube.com/watch?v=AbfOTH7MXOE',
+  'Snap-down / queda para receção':'https://www.youtube.com/watch?v=7r-UOQi8YvE',
+  'Pique':'https://www.youtube.com/watch?v=LAYLvbq_ILo',
+  'Afastamento de pernas':'https://www.youtube.com/watch?v=LAYLvbq_ILo',
+  'Afastamento':'https://www.youtube.com/watch?v=LAYLvbq_ILo',
+  'Espargata direita':'https://www.youtube.com/watch?v=LAYLvbq_ILo',
+  'Espargata esquerda':'https://www.youtube.com/watch?v=LAYLvbq_ILo',
+  'Flexores da anca':'https://www.youtube.com/watch?v=LAYLvbq_ILo',
+  'Elevação ativa da perna':'https://www.youtube.com/watch?v=JhqNfy_yono',
+  'Ombros':'https://www.youtube.com/watch?v=JhqNfy_yono',
+  'Ombros / ponte leve':'https://www.youtube.com/watch?v=JhqNfy_yono'
 };
 
 const daysData=[
@@ -229,7 +252,7 @@ function render(){document.getElementById('g1b').classList.toggle('active',group
  const d=daysData.find(x=>x.key===dayKey);document.getElementById('dayTitle').textContent=d.title;document.getElementById('dayGoal').textContent=d.goal;document.getElementById('dayLoad').textContent=`Carga ${d.load}`;
  document.getElementById('sessionMeta').innerHTML=d.meta.map(x=>`<div class="meta-box"><b>${x}</b><span>${group}</span></div>`).join('');
  let html=''; let idx=0; d.sections.forEach(sec=>{html+=`<section class="section"><div class="section-title"><h3>${sec.name}</h3><span class="badge">${sec.items.length} exercícios</span></div><div class="cards">`;sec.items.forEach(item=>{idx++;const t=item[group];const k=storeKey('ex_'+idx);const saved=JSON.parse(localStorage.getItem(k)||'{}');const st=saved.status||'Por fazer';const cls=st==='Concluído'?'status-done':st==='Adaptado'?'status-adapted':st==='Não realizado'?'status-skip':'';
- html+=`<article class="card ${cls}" id="card_${idx}"><div class="card-head"><div class="num">${idx}</div><div><div class="title">${item.name}</div><div class="cue">${item.cue}</div></div></div><div class="timing"><span class="pill">Trabalho <strong>${fmt(t.w)}</strong></span><span class="pill">Descanso <strong>${fmt(t.r)}</strong></span><span class="pill">Repetições <strong>${t.n}×</strong></span></div><div class="actions"><button class="btn primary" onclick='openTimer(${JSON.stringify(item.name)},${t.w},${t.r},${t.n})'>▶ Iniciar</button>${item.video?`<button class="btn video" onclick="window.open('${item.video}','_blank')">🎥 Vídeo</button>`:''}<button class="btn secondary" onclick="markDone(${idx})">✓ Concluir</button></div><div class="tracking"><select onchange="saveExercise(${idx},this.value,null)"><option ${st==='Por fazer'?'selected':''}>Por fazer</option><option ${st==='Concluído'?'selected':''}>Concluído</option><option ${st==='Adaptado'?'selected':''}>Adaptado</option><option ${st==='Não realizado'?'selected':''}>Não realizado</option></select><input type="number" min="1" max="10" placeholder="RPE" value="${saved.rpe||''}" onchange="saveExercise(${idx},null,this.value)"></div><div class="notes"><textarea placeholder="Nota rápida..." oninput="saveExerciseNote(${idx},this.value)">${saved.note||''}</textarea></div></article>`});html+='</div></section>'});document.getElementById('content').innerHTML=html; loadSessionMeta();updateProgress();}
+ html+=`<article class="card ${cls}" id="card_${idx}"><div class="card-head"><div class="num">${idx}</div><div><div class="title">${item.name}</div><div class="cue">${item.cue}</div></div></div><div class="timing"><span class="pill">Trabalho <strong>${fmt(t.w)}</strong></span><span class="pill">Descanso <strong>${fmt(t.r)}</strong></span><span class="pill">Repetições <strong>${t.n}×</strong></span></div><div class="actions"><button class="btn primary" onclick='openTimer(${JSON.stringify(item.name)},${t.w},${t.r},${t.n})'>▶ Iniciar</button>${item.video?`<button class="btn video" onclick="window.open('${item.video}','_blank','noopener,noreferrer')">🎥 Ver exemplo</button>`:''}<button class="btn secondary" onclick="markDone(${idx})">✓ Concluir</button></div><div class="tracking"><select onchange="saveExercise(${idx},this.value,null)"><option ${st==='Por fazer'?'selected':''}>Por fazer</option><option ${st==='Concluído'?'selected':''}>Concluído</option><option ${st==='Adaptado'?'selected':''}>Adaptado</option><option ${st==='Não realizado'?'selected':''}>Não realizado</option></select><input type="number" min="1" max="10" placeholder="RPE" value="${saved.rpe||''}" onchange="saveExercise(${idx},null,this.value)"></div><div class="notes"><textarea placeholder="Nota rápida..." oninput="saveExerciseNote(${idx},this.value)">${saved.note||''}</textarea></div></article>`});html+='</div></section>'});document.getElementById('content').innerHTML=html; loadSessionMeta();updateProgress();}
 function setGroup(g){group=g;localStorage.setItem('aae_group',g);render()} function setDay(k){dayKey=k;localStorage.setItem('aae_day',k);render()}
 function saveExercise(idx,status,rpe){const k=storeKey('ex_'+idx),v=JSON.parse(localStorage.getItem(k)||'{}');if(status!==null)v.status=status;if(rpe!==null)v.rpe=rpe;localStorage.setItem(k,JSON.stringify(v));render()}
 function saveExerciseNote(idx,note){const k=storeKey('ex_'+idx),v=JSON.parse(localStorage.getItem(k)||'{}');v.note=note;localStorage.setItem(k,JSON.stringify(v));}
