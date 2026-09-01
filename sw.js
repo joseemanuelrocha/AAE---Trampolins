@@ -1,4 +1,4 @@
-const CACHE='aae-treino-v4-cronometro-com-video';
+const CACHE='aae-treino-v5-videos-corrigidos';
 const ASSETS=['./','./index.html','./manifest.json','./icon-192.png','./icon-512.png'];
 self.addEventListener('install',event=>{
   self.skipWaiting();
