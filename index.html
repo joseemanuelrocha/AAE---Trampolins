@@ -248,7 +248,18 @@ const daysData=[
 function ex(name,cue,wB,rB,nB,wA,rA,nA,videoKey){return {name,cue,'1B':{w:wB,r:rB,n:nB},'1A':{w:wA,r:rA,n:nA},video:videos[videoKey||name]||null}}
 
 const embedFallbacks={
-  'Y-T-W':'https://www.youtube.com/watch?v=DmUX88nWClo','Saltos reativos de tornozelo':'https://www.youtube.com/watch?v=Z3c4QscD1UY','Salto horizontal + receção':'https://www.youtube.com/watch?v=DXu-8TAJwi4','Bola medicinal acima da cabeça':'https://www.youtube.com/watch?v=nfX7IFK9UNI','Elevação da bacia':'https://www.youtube.com/watch?v=Z3cY3d3BBo4','Press anti-rotação':'https://www.youtube.com/watch?v=fBU5bTtcWhM','Tibial anterior':'https://www.youtube.com/watch?v=UrB5wA7B3hI','Ponte':'https://www.youtube.com/watch?v=JhqNfy_yono','Ponte leve':'https://www.youtube.com/watch?v=JhqNfy_yono'
+  'Alternância braço-perna deitado':'https://www.youtube.com/watch?v=GbSC02oU3To',
+  'Y-T-W':'https://www.youtube.com/watch?v=QdGTI4Lshg4',
+  'Saltos reativos de tornozelo':'https://www.youtube.com/watch?v=c2LBofIzUqs',
+  'Salto horizontal + receção':'https://www.youtube.com/watch?v=Fhz-s_Hqo8I',
+  'Bola medicinal acima da cabeça':'https://www.youtube.com/watch?v=SW07AK5Qu3U',
+  'Elevação da bacia':'https://www.youtube.com/watch?v=_0APnBNNTfw',
+  'Press anti-rotação':'https://www.youtube.com/watch?v=axgv7H_VQOo',
+  'Tibial anterior':'https://www.youtube.com/watch?v=nn0avIe473A',
+  'Prancha lateral':'https://www.youtube.com/watch?v=XikKcxB0qf0',
+  'Copenhagen':'https://www.youtube.com/watch?v=VfjAmomtVa0',
+  'Ponte':'https://www.youtube.com/watch?v=otoDVplyg9w',
+  'Ponte leve':'https://www.youtube.com/watch?v=otoDVplyg9w'
 };
 function relatedDemo(name){
   if(/rolamento/i.test(name))return videos['Rolamento à frente'];if(/pino/i.test(name))return videos['Pino à parede'];if(/ponte|anca|glúteo/i.test(name))return videos['Ponte de glúteos'];if(/salto|trampolim|skipping|abertura|estabilização|deslocamento/i.test(name))return videos['Salto vertical com contramovimento'];if(/corrida|escada|subida/i.test(name))return videos['Saltos reativos de tornozelo'];if(/agachamento|afundo/i.test(name))return videos['Agachamento com halter'];if(/peso morto|posterior/i.test(name))return videos['Peso morto romeno'];if(/remada|y-t-w|ombro/i.test(name))return videos['Remada'];if(/flexões/i.test(name))return videos['Flexões'];if(/prancha|hollow|arch|anti-rotação|copenhagen/i.test(name))return videos['Hollow / Arch'];if(/roda/i.test(name))return videos['Roda'];if(/vela/i.test(name))return videos['Vela'];if(/pique|afastamento|espargata|flexor|perna|mobilidade|tornozelo|gémeos|tibial/i.test(name))return videos['Pique'];return videos['Hollow / Arch'];
