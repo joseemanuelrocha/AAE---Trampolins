@@ -111,6 +111,8 @@ const videos={
   'Hollow / Arch':'https://www.youtube.com/watch?v=fBU5bTtcWhM',
   'Tibial anterior':'https://ie.physitrack.com/home-exercise-video/toe-raises-with-support-%28tibialis-anterior-%29',
   'Copenhagen':'https://vimeo.com/647962374',
+  'Gémeos':'https://www.youtube.com/watch?v=-M4-G8p8fmc',
+  'Prancha frontal':'https://www.youtube.com/watch?v=pSHjTRCQxIw',
   'Remada':'https://www.youtube.com/watch?v=DmUX88nWClo',
   'Flexões':'https://www.youtube.com/watch?v=WDIpL0pjun0',
   'Rolamento à frente':'https://www.youtube.com/watch?v=KCb6cehtmcw',
@@ -163,12 +165,12 @@ const daysData=[
    ex('Pino à parede','Braços estendidos, ombros elevados, corpo apertado',20,40,3,30,45,3)
   ]},
   {name:'Trampolim — básicos e skipping',items:[
-   ex('Saltos básicos baixos','Centro do trampolim, altura baixa',30,30,2,40,25,2),
-   ex('Saltos básicos com braços','Coordenar braços sem perder eixo',30,30,2,40,25,2),
-   ex('Abertura/fecho','Ritmo e alinhamento',20,30,2,30,25,2),
    ex('Skipping baixo no trampolim','Pés rápidos, baixa amplitude',20,30,2,30,30,2),
    ex('Skipping alto no trampolim','Joelhos altos com controlo',20,35,2,30,30,2),
-   ex('Salto + estabilização','Parar e ficar imóvel',20,30,2,30,25,2)
+   ex('Saltos de extensão baixos','Centro do trampolim e altura baixa',30,30,2,40,25,2),
+   ex('Saltos básicos com braços','Braços em cima, em baixo e lateralmente — 10 s cada',30,30,2,40,25,2),
+   ex('Abertura/fecho','Carpa P7: afastadas, juntas e posição engrupada',20,30,2,30,25,2),
+   ex('6 velas + receção','Seis velas e terminar com receção estável',20,30,2,30,25,2)
   ]},
   {name:'Reforço muscular',items:[
    ex('Agachamento com halter','Carga moderada; sem falha',35,25,2,35,25,3,'Agachamento com halter'),
@@ -198,11 +200,11 @@ const daysData=[
    ex('Pino à parede','Alinhamento antes da duração',20,40,2,30,40,2)
   ]},
   {name:'Trampolim — resistência específica',items:[
-   ex('Saltos básicos','Ritmo constante',30,20,3,45,20,4),
    ex('Skipping baixo no trampolim','Frequência',20,30,3,30,25,4),
-   ex('Abertura/fecho','Manter centro',20,30,3,30,25,4),
    ex('Skipping alto no trampolim','Joelhos altos sem perder postura',20,30,3,30,25,4),
-   ex('Saltos com braços','Ritmo + coordenação',30,30,3,45,20,4)
+   ex('Saltos de extensão baixos','Ritmo constante e altura baixa',30,20,3,45,20,4),
+   ex('Abertura/fecho','Carpa P7: afastadas, juntas e posição engrupada',20,30,3,30,25,4),
+   ex('Saltos com braços','Braços em cima, em baixo e lateralmente — 10 s cada',30,30,3,45,20,4)
   ]},
   {name:'Resistência muscular',items:[
    ex('Afundos alternados','Passo estável',30,30,2,35,25,3),ex('Flexões','Linha corporal',30,30,2,35,25,3,'Flexões'),ex('Remada','Escápulas ativas',30,30,2,35,25,3,'Remada'),ex('Gémeos','Amplitude completa',30,30,2,35,25,3),ex('Prancha lateral','Anca alta',25,20,2,30,20,3,'Prancha lateral'),ex('Tibial anterior','Subir antepé controladamente',30,30,2,35,25,3,'Tibial anterior')
@@ -215,7 +217,7 @@ const daysData=[
   {name:'Ginástica de controlo',items:[
    ex('Ponte','Braços estendidos; abrir ombros, não forçar lombar',20,45,3,30,45,3),ex('Vela','Alinhamento',20,20,2,30,20,2),ex('Hollow / Arch','Controlo do tronco',20,20,2,30,20,2,'Hollow / Arch'),ex('Pino à parede','Qualidade de linha',20,45,2,30,45,2),ex('Equilíbrio numa perna','Estabilidade do pé e tornozelo',30,15,2,30,15,2,'Equilíbrio numa perna')
   ]},
-  {name:'Trampolim leve',items:[ex('Saltos básicos baixos','Sem procurar altura',30,30,3,30,30,3),ex('Saltos com braços','Suave',30,30,3,30,30,3),ex('Skipping baixo','Baixa intensidade',20,40,3,20,40,3),ex('Deslocamentos pequenos frente/trás','Mínima amplitude',20,40,3,20,40,3),ex('Deslocamentos laterais','Controlados',20,40,3,20,40,3),ex('Salto + estabilização','Parar completamente',20,40,3,20,40,3)]},
+  {name:'Trampolim leve',items:[ex('Skipping baixo','Baixa intensidade',20,40,3,20,40,3),ex('Saltos de extensão baixos','Centro do trampolim e altura baixa',30,30,3,30,30,3),ex('Saltos com braços','Braços em cima, em baixo e lateralmente — 10 s cada',30,30,3,30,30,3),ex('Deslocamentos pequenos frente/trás','Mínima amplitude',20,40,3,20,40,3),ex('Deslocamentos laterais','Controlados',20,40,3,20,40,3),ex('6 velas + receção','Seis velas e terminar com receção estável',20,40,3,20,40,3)]},
   {name:'Prevenção',items:[ex('Gémeos — joelho estendido','Controlo',30,20,2,30,20,2),ex('Gémeos — joelho fletido','Foco no sóleo',30,20,2,30,20,2),ex('Tibial anterior','Subir antepé',30,20,2,30,20,2,'Tibial anterior'),ex('Copenhagen','Joelho apoiado',20,20,2,25,20,2,'Copenhagen'),ex('Press anti-rotação','Tronco imóvel',30,20,2,30,20,2,'Press anti-rotação'),ex('Y-T-W','Escápulas ativas',40,20,2,40,20,2,'Y-T-W')]
   }
  ]},
@@ -227,7 +229,7 @@ const daysData=[
   {name:'Potência no solo',items:[
    ex('Saltos reativos de tornozelo','Rápidos e elásticos',10,50,3,15,60,3,'Saltos reativos de tornozelo'),ex('Salto vertical com contramovimento','3 saltos de qualidade',15,60,2,15,60,3,'Salto vertical com contramovimento'),ex('Salto horizontal + receção','Parar imóvel',15,60,2,15,60,3,'Salto horizontal + receção'),ex('Salto para caixa baixa','Receção silenciosa e estável',15,70,2,15,70,3,'Salto para caixa baixa'),ex('Bola medicinal acima da cabeça','Lançamento explosivo',20,60,2,20,60,3,'Bola medicinal acima da cabeça')
   ]},
-  {name:'Trampolim — potência controlada',items:[ex('Saltos básicos progressivos','Baixo → médio; manter controlo',20,40,3,20,40,4),ex('Skipping rápido','Máxima frequência com postura',15,45,3,15,45,4),ex('Skipping alto','Joelhos altos',20,40,3,20,40,4),ex('Saltos básicos altos','Qualidade e eixo',20,50,3,20,50,4),ex('Abertura/fecho dinâmica','Rápida mas limpa',20,40,3,20,40,4),ex('3 saltos progressivos + estabilização','Terminar imóvel',15,45,3,15,45,4)]},
+  {name:'Trampolim — potência controlada',items:[ex('Skipping rápido','Máxima frequência com postura',15,45,3,15,45,4),ex('Skipping alto','Joelhos altos',20,40,3,20,40,4),ex('Saltos básicos progressivos','Baixo → médio; manter controlo',20,40,3,20,40,4),ex('Saltos básicos altos','Qualidade e eixo',20,50,3,20,50,4),ex('Abertura/fecho dinâmica','Carpa P7: afastadas, juntas e posição engrupada',20,40,3,20,40,4),ex('3 saltos progressivos + estabilização','Terminar imóvel',15,45,3,15,45,4)]},
   {name:'Força',items:[ex('Agachamento búlgaro','Carga moderada',30,30,2,40,25,3,'Agachamento búlgaro'),ex('Peso morto romeno','Anca para trás',30,30,2,40,25,3,'Peso morto romeno'),ex('Elevação da bacia','Extensão completa da anca',30,30,2,40,25,3,'Elevação da bacia'),ex('Remada','Escápulas ativas',30,30,2,40,25,3,'Remada'),ex('Press anti-rotação','Tronco imóvel',30,30,2,35,25,3,'Press anti-rotação'),ex('Gémeos','Amplitude completa',30,25,2,35,25,3)]},
   {name:'Flexibilidade',items:[ex('Pique','Sem dor',30,20,1,30,20,1),ex('Afastamento','Controlado',30,20,1,30,20,1),ex('Espargata direita','Autónoma',30,20,1,30,20,1),ex('Espargata esquerda','Autónoma',30,20,1,30,20,1),ex('Ombros / ponte leve','Sem forçar lombar',30,20,1,30,20,1)]}
  ]},
@@ -239,7 +241,7 @@ const daysData=[
   {name:'Circuito de ginástica básica',items:[
    ex('Rolamento à frente','Limpo e controlado',35,25,2,40,20,3),ex('Rolamento atrás','Mãos bem posicionadas',35,25,2,40,20,3),ex('Rolamento — pernas afastadas','Joelhos estendidos',35,25,2,40,20,3),ex('Pino','Parede ou livre conforme nível',35,25,2,40,20,3),ex('Ponte','Ombros abertos',35,25,2,40,20,3),ex('Roda','Linha corporal',35,25,2,40,20,3),ex('Hollow / Arch','Forma corporal',35,25,2,40,20,3,'Hollow / Arch'),ex('Vela','Alinhamento',35,25,2,40,20,3),ex('Pino → rolamento','Só para ginastas tecnicamente preparados',25,35,2,30,30,2)
   ]},
-  {name:'Trampolim — resistência específica',items:[ex('Saltos básicos','Ritmo constante',30,30,3,45,25,3),ex('Skipping baixo','Frequência',25,35,3,30,30,3),ex('Abertura/fecho','Centro do trampolim',25,35,3,30,30,3),ex('Skipping alto','Coordenação',20,40,3,30,30,3),ex('Saltos com braços','Ritmo e alinhamento',30,30,3,40,30,3),ex('Salto + estabilização','Parar imóvel',20,40,3,25,35,3)]},
+  {name:'Trampolim — resistência específica',items:[ex('Skipping baixo','Frequência',25,35,3,30,30,3),ex('Skipping alto','Coordenação',20,40,3,30,30,3),ex('Saltos de extensão baixos','Ritmo constante e altura baixa',30,30,3,45,25,3),ex('Abertura/fecho','Carpa P7: afastadas, juntas e posição engrupada',25,35,3,30,30,3),ex('Saltos com braços','Braços em cima, em baixo e lateralmente — 10 s cada',30,30,3,40,30,3),ex('6 velas + receção','Seis velas e terminar com receção estável',20,40,3,25,35,3)]},
   {name:'Resistência muscular',items:[ex('Agachamento','Sem carga máxima',30,30,2,40,20,2),ex('Remada','Escápulas ativas',30,30,2,40,20,2,'Remada'),ex('Flexões','Corpo alinhado',30,30,2,40,20,2,'Flexões'),ex('Ponte de glúteos','Glúteos ativos',30,30,2,40,20,2,'Ponte de glúteos'),ex('Prancha lateral','Anca alta',25,25,2,35,20,2,'Prancha lateral'),ex('Tibial anterior','Controlo',30,30,2,40,20,2,'Tibial anterior'),ex('Y-T-W','Qualidade do ombro',30,30,2,35,25,2,'Y-T-W')]
   },
   {name:'Flexibilidade final',items:[ex('Pique','Sem dor',30,15,2,30,15,2),ex('Afastamento','Amplitude confortável',30,15,2,30,15,2),ex('Espargata direita','Autónoma',30,15,2,30,15,2),ex('Espargata esquerda','Autónoma',30,15,2,30,15,2),ex('Flexores da anca','Bacia neutra',30,15,2,30,15,2),ex('Ombros','Progressivo',30,15,2,30,15,2),ex('Ponte leve','Só se confortável',20,30,1,25,30,1)]}
@@ -262,7 +264,7 @@ const embedFallbacks={
   'Ponte leve':'https://www.youtube.com/watch?v=otoDVplyg9w'
 };
 function relatedDemo(name){
-  if(/rolamento/i.test(name))return videos['Rolamento à frente'];if(/pino/i.test(name))return videos['Pino à parede'];if(/ponte|anca|glúteo/i.test(name))return videos['Ponte de glúteos'];if(/salto|trampolim|skipping|abertura|estabilização|deslocamento/i.test(name))return videos['Salto vertical com contramovimento'];if(/corrida|escada|subida/i.test(name))return videos['Saltos reativos de tornozelo'];if(/agachamento|afundo/i.test(name))return videos['Agachamento com halter'];if(/peso morto|posterior/i.test(name))return videos['Peso morto romeno'];if(/remada|y-t-w|ombro/i.test(name))return videos['Remada'];if(/flexões/i.test(name))return videos['Flexões'];if(/prancha|hollow|arch|anti-rotação|copenhagen/i.test(name))return videos['Hollow / Arch'];if(/roda/i.test(name))return videos['Roda'];if(/vela/i.test(name))return videos['Vela'];if(/pique|afastamento|espargata|flexor|perna|mobilidade|tornozelo|gémeos|tibial/i.test(name))return videos['Pique'];return videos['Hollow / Arch'];
+  if(/rolamento/i.test(name))return videos['Rolamento à frente'];if(/pino/i.test(name))return videos['Pino à parede'];if(/ponte|anca|glúteo/i.test(name))return videos['Ponte de glúteos'];if(/salto|trampolim|skipping|abertura|estabilização|deslocamento|receção/i.test(name))return videos['Salto vertical com contramovimento'];if(/corrida|escada|subida/i.test(name))return videos['Saltos reativos de tornozelo'];if(/agachamento|afundo/i.test(name))return videos['Agachamento com halter'];if(/peso morto|posterior/i.test(name))return videos['Peso morto romeno'];if(/remada|y-t-w|ombro/i.test(name))return videos['Remada'];if(/flexões/i.test(name))return videos['Flexões'];if(/prancha|hollow|arch|anti-rotação|copenhagen/i.test(name))return videos['Hollow / Arch'];if(/roda/i.test(name))return videos['Roda'];if(/vela/i.test(name))return videos['Vela'];if(/pique|afastamento|espargata|flexor|perna|mobilidade|tornozelo|gémeos|tibial/i.test(name))return videos['Pique'];return videos['Hollow / Arch'];
 }
 function demoUrl(name,original){return embedFallbacks[name]||original||relatedDemo(name)}
 function embedUrl(url){let match=url&&url.match(/(?:youtu\.be\/|youtube\.com\/(?:watch\?v=|embed\/))([\w-]{11})/);if(match)return `https://www.youtube-nocookie.com/embed/${match[1]}?autoplay=1&mute=1&loop=1&playlist=${match[1]}&controls=1&playsinline=1&rel=0&enablejsapi=1`;match=url&&url.match(/vimeo\.com\/(?:video\/)?(\d+)/);if(match)return `https://player.vimeo.com/video/${match[1]}?autoplay=1&muted=1&loop=1&playsinline=1&title=0&byline=0&portrait=0&api=1`;return embedUrl(videos['Hollow / Arch'])}
