@@ -1,4 +1,4 @@
-const CACHE='aae-treino-v5-videos-corrigidos';
+const CACHE='aae-treino-v6-preparar-video';
 const ASSETS=['./','./index.html','./manifest.json','./icon-192.png','./icon-512.png'];
 self.addEventListener('install',event=>{
   self.skipWaiting();
