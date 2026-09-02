@@ -101,19 +101,19 @@ const videos={
   'Salto vertical com contramovimento':'https://www.youtube.com/watch?v=Z3c4QscD1UY',
   'Salto horizontal + receção':'https://worldathletics.org/en/kids-athletics/teaching-athletics/horizontal-jump',
   'Salto para caixa baixa':'https://www.youtube.com/watch?v=DXu-8TAJwi4',
-  'Bola medicinal acima da cabeça':'https://us.physitrack.com/home-exercise-video/medicine-ball-overhead-toss',
+  'Agachamento com salto':'https://www.youtube.com/watch?v=tZSYZdtbONc',
   'Agachamento com halter':'https://www.youtube.com/watch?v=nfX7IFK9UNI',
-  'Peso morto romeno':'https://www.youtube.com/watch?v=2bmuYtv4HbQ',
+  'Peso morto romeno com halteres':'https://www.youtube.com/watch?v=V8Hdl1FiNt4',
   'Agachamento búlgaro':'https://www.youtube.com/watch?v=hbw7hdyOpq0',
-  'Elevação da bacia':'https://library.theprehabguys.com/vimeo-video/american-hip-thrust/',
-  'Press anti-rotação':'https://www.catalystathletics.com/exercise/526/Pallof-Press/',
+  'Ponte de glúteos no solo':'https://www.youtube.com/watch?v=Z3cY3d3BBo4',
+  'Prancha com toque nos ombros':'https://www.youtube.com/watch?v=gWHQpMUd7vw',
   'Prancha lateral':'https://vimeo.com/662497117',
   'Hollow / Arch':'https://www.youtube.com/watch?v=fBU5bTtcWhM',
   'Tibial anterior':'https://ie.physitrack.com/home-exercise-video/toe-raises-with-support-%28tibialis-anterior-%29',
   'Copenhagen':'https://vimeo.com/647962374',
   'Gémeos':'https://www.youtube.com/watch?v=-M4-G8p8fmc',
   'Prancha frontal':'https://www.youtube.com/watch?v=pSHjTRCQxIw',
-  'Remada':'https://www.youtube.com/watch?v=DmUX88nWClo',
+  'Remada unilateral com halter':'https://www.youtube.com/watch?v=DmUX88nWClo',
   'Flexões':'https://www.youtube.com/watch?v=WDIpL0pjun0',
   'Rolamento à frente':'https://www.youtube.com/watch?v=KCb6cehtmcw',
   'Rolamento atrás':'https://www.youtube.com/watch?v=BaPfU4HHCkg',
@@ -129,21 +129,22 @@ const videos={
   'Snap-down / queda para receção':'https://www.youtube.com/watch?v=7r-UOQi8YvE',
   'Flexão do tronco à frente em pé':'https://www.youtube.com/watch?v=ZbpwzA3AuI8',
   'Pique sentado dinâmico':'https://www.youtube.com/watch?v=wVdOp3h1nog',
-  'Mobilidade dos ombros com bastão':'https://www.youtube.com/watch?v=JNLEgxngOt8',
+  'Deslizamentos de ombros na parede':'https://www.youtube.com/watch?v=ZZHb8yp7oTM',
   'Agachamento controlado':'https://www.youtube.com/watch?v=m0GcZ24pK6k',
   'Afundo dinâmico alternado':'https://www.youtube.com/watch?v=5frs7_F2SrU',
-  'Alongamento posterior da coxa deitado':'https://www.youtube.com/watch?v=mQHbVIiufFI',
-  'Alongamento dos flexores da anca':'https://www.youtube.com/watch?v=neWgAwVnMSY',
-  'Alongamento dos gémeos à parede':'https://www.youtube.com/watch?v=GMYWcUVNNRs',
-  'Alongamento de adutores sentado':'https://www.youtube.com/watch?v=z3vQ3aTJVn0',
-  'Alongamento de ombro cruzado':'https://www.youtube.com/watch?v=mMOzQRRZI0k',
-  'Posição da criança':'https://www.youtube.com/watch?v=DtbnnG_OyIk'
+  'Mobilidade do tornozelo à parede':'https://www.youtube.com/watch?v=apCJ4hcCS44',
+  'Alongamento posterior da coxa deitado':'https://www.youtube.com/watch?v=Nzy6_F9s6QI',
+  'Alongamento dos flexores da anca':'https://www.youtube.com/watch?v=mzPvzMivukw',
+  'Alongamento dos gémeos à parede':'https://www.youtube.com/watch?v=mafo7o7OnFo',
+  'Alongamento de adutores sentado':'https://www.youtube.com/watch?v=v4OLkxi5-Q0',
+  'Alongamento de ombro cruzado':'https://www.youtube.com/watch?v=GcPujVayIbI',
+  'Posição da criança':'https://www.youtube.com/watch?v=_ZX_zTOBgp8'
 };
 
 function groundWarmup(){return {name:'Flexibilidade inicial no solo — mobilidade e controlo',items:[
   ex('Flexão do tronco à frente em pé','Movimento contínuo; alongar sem dor e sem bloquear os joelhos',35,15,1,40,15,1),
   ex('Pique sentado dinâmico','Tronco longo; avançar e regressar sem balanços bruscos',35,15,1,40,15,1),
-  ex('Mobilidade dos ombros com bastão','Braços estendidos; pega larga e amplitude confortável',40,15,1,45,15,1),
+  ex('Deslizamentos de ombros na parede','Deslizar os braços sem arquear as costas; não requer material',40,15,1,45,15,1),
   ex('Agachamento controlado','Pés apoiados; joelhos alinhados com os pés e amplitude progressiva',40,15,1,45,15,1),
   ex('Afundo dinâmico alternado','Tronco alto; alternar lados e manter o joelho estável',40,15,1,45,15,1),
   ex('Receção baixa + equilíbrio','Flexão suave da anca e dos joelhos; estabilizar antes de repetir',30,20,1,35,20,1,'Snap-down / queda para receção')
@@ -190,8 +191,8 @@ const daysData=[
   ]},
   {name:'Reforço muscular',items:[
    ex('Agachamento com halter','Carga moderada; sem falha',35,25,2,35,25,3,'Agachamento com halter'),
-   ex('Peso morto romeno','Anca para trás, costas neutras',35,25,2,35,25,3,'Peso morto romeno'),
-   ex('Remada','Escápulas ativas',35,25,2,35,25,3,'Remada'),
+   ex('Peso morto romeno com halteres','Um halter em cada mão; anca para trás e costas neutras',35,25,2,35,25,3),
+   ex('Remada unilateral com halter','Um braço de cada vez; escápula ativa',35,25,2,35,25,3),
    ex('Flexões','Corpo alinhado',30,30,2,30,30,3,'Flexões'),
    ex('Gémeos','Amplitude completa',30,20,2,30,20,3),
    ex('Prancha frontal','Linha ombro-anca-pé',25,30,2,35,30,3)
@@ -217,19 +218,19 @@ const daysData=[
    ex('Saltos com braços','Braços em cima, em baixo e lateralmente — 10 s cada',30,30,3,45,20,4)
   ]},
   {name:'Resistência muscular',items:[
-   ex('Afundos alternados','Passo estável',30,30,2,35,25,3),ex('Flexões','Linha corporal',30,30,2,35,25,3,'Flexões'),ex('Remada','Escápulas ativas',30,30,2,35,25,3,'Remada'),ex('Gémeos','Amplitude completa',30,30,2,35,25,3),ex('Prancha lateral','Anca alta',25,20,2,30,20,3,'Prancha lateral'),ex('Tibial anterior','Subir antepé controladamente',30,30,2,35,25,3,'Tibial anterior')
+   ex('Afundos alternados','Passo estável',30,30,2,35,25,3),ex('Flexões','Linha corporal',30,30,2,35,25,3,'Flexões'),ex('Remada unilateral com halter','Um braço de cada vez; escápula ativa',30,30,2,35,25,3),ex('Gémeos','Amplitude completa',30,30,2,35,25,3),ex('Prancha lateral','Anca alta',25,20,2,30,20,3,'Prancha lateral'),ex('Tibial anterior','Subir antepé controladamente',30,30,2,35,25,3,'Tibial anterior')
   ]},
   finalStretching()
  ]},
  {key:'qua',label:'4.ª',title:'4.ª feira — Recuperação + flexibilidade',goal:'Reduzir carga mecânica, recuperar mobilidade e consolidar posições corporais.',load:'45–50%',meta:['150 min','Recuperação ativa','Ponte + pino','Prevenção'],sections:[
   {name:'Recuperação ativa',items:[ex('Corrida muito leve','3–4/10 de esforço',600,120,1,600,120,1)]},
   groundWarmup(),
-  {name:'Flexibilidade complementar',items:[ex('Tornozelo','Joelho à parede',40,15,2,40,15,2),ex('Posterior da coxa','Alongamento confortável',30,15,2,30,15,2),ex('Flexores da anca','Bacia neutra',30,15,2,30,15,2),ex('Afastamento','Amplitude sem forçar',30,20,2,30,20,2)]},
+  {name:'Flexibilidade complementar',items:[ex('Mobilidade do tornozelo à parede','Joelho avança alinhado sem levantar o calcanhar',40,15,2,40,15,2),ex('Alongamento posterior da coxa deitado','Alongamento confortável e sem dor',30,15,2,30,15,2),ex('Alongamento dos flexores da anca','Bacia neutra; um lado de cada vez',30,15,2,30,15,2),ex('Alongamento de adutores sentado','Costas longas; amplitude sem forçar',30,20,2,30,20,2)]},
   {name:'Ginástica de controlo',items:[
    ex('Ponte','Braços estendidos; abrir ombros, não forçar lombar',20,45,3,30,45,3),ex('Vela','Alinhamento',20,20,2,30,20,2),ex('Hollow / Arch','Controlo do tronco',20,20,2,30,20,2,'Hollow / Arch'),ex('Pino à parede','Qualidade de linha',20,45,2,30,45,2),ex('Equilíbrio numa perna','Estabilidade do pé e tornozelo',30,15,2,30,15,2,'Equilíbrio numa perna')
   ]},
   {name:'Trampolim leve',items:[ex('Skipping baixo','Baixa intensidade',20,40,3,20,40,3),ex('Saltos de extensão baixos','Centro do trampolim e altura baixa',30,30,3,30,30,3),ex('Saltos com braços','Braços em cima, em baixo e lateralmente — 10 s cada',30,30,3,30,30,3),ex('Deslocamentos pequenos frente/trás','Mínima amplitude',20,40,3,20,40,3),ex('Deslocamentos laterais','Controlados',20,40,3,20,40,3),ex('6 velas + receção','Seis velas e terminar com receção estável',20,40,3,20,40,3)]},
-  {name:'Prevenção',items:[ex('Gémeos — joelho estendido','Controlo',30,20,2,30,20,2),ex('Gémeos — joelho fletido','Foco no sóleo',30,20,2,30,20,2),ex('Tibial anterior','Subir antepé',30,20,2,30,20,2,'Tibial anterior'),ex('Copenhagen','Joelho apoiado',20,20,2,25,20,2,'Copenhagen'),ex('Press anti-rotação','Tronco imóvel',30,20,2,30,20,2,'Press anti-rotação'),ex('Y-T-W','Escápulas ativas',40,20,2,40,20,2,'Y-T-W')]},
+  {name:'Prevenção',items:[ex('Gémeos — joelho estendido','Controlo',30,20,2,30,20,2),ex('Gémeos — joelho fletido','Foco no sóleo',30,20,2,30,20,2),ex('Tibial anterior','Subir antepé',30,20,2,30,20,2,'Tibial anterior'),ex('Copenhagen','Joelho apoiado',20,20,2,25,20,2,'Copenhagen'),ex('Prancha com toque nos ombros','Alternar as mãos sem rodar a bacia; peso corporal',30,20,2,30,20,2),ex('Y-T-W','Escápulas ativas',40,20,2,40,20,2,'Y-T-W')]},
   finalStretching()
  ]},
  {key:'qui',label:'5.ª',title:'5.ª feira — Pino + potência + força',goal:'Reintroduzir produção rápida de força, pino e progressão para pino-rolamento.',load:'65–70%',meta:['150 min','Pino','Potência','Força'],sections:[
@@ -239,10 +240,10 @@ const daysData=[
    ex('Pino à parede','Braços estendidos, corpo apertado',20,40,2,30,40,2),ex('Pino livre / com ajuda','Tentativas curtas e de qualidade',8,25,5,10,25,6),ex('Pino → rolamento à frente','Só se pino e rolamento forem seguros',10,50,4,12,40,5),ex('Snap-down / queda para receção','Chegar ao chão e estabilizar',12,45,2,15,45,3)
   ]},
   {name:'Potência no solo',items:[
-   ex('Saltos reativos de tornozelo','Rápidos e elásticos',10,50,3,15,60,3,'Saltos reativos de tornozelo'),ex('Salto vertical com contramovimento','3 saltos de qualidade',15,60,2,15,60,3,'Salto vertical com contramovimento'),ex('Salto horizontal + receção','Parar imóvel',15,60,2,15,60,3,'Salto horizontal + receção'),ex('Salto para caixa baixa','Receção silenciosa e estável',15,70,2,15,70,3,'Salto para caixa baixa'),ex('Bola medicinal acima da cabeça','Lançamento explosivo',20,60,2,20,60,3,'Bola medicinal acima da cabeça')
+   ex('Saltos reativos de tornozelo','Rápidos e elásticos',10,50,3,15,60,3,'Saltos reativos de tornozelo'),ex('Salto vertical com contramovimento','3 saltos de qualidade',15,60,2,15,60,3,'Salto vertical com contramovimento'),ex('Salto horizontal + receção','Parar imóvel',15,60,2,15,60,3,'Salto horizontal + receção'),ex('Salto para caixa baixa','Receção silenciosa e estável',15,70,2,15,70,3,'Salto para caixa baixa'),ex('Agachamento com salto','Explodir para cima e aterrar suavemente; peso corporal',20,60,2,20,60,3)
   ]},
   {name:'Trampolim — potência controlada',items:[ex('Skipping rápido','Máxima frequência com postura',15,45,3,15,45,4),ex('Skipping alto','Joelhos altos',20,40,3,20,40,4),ex('Saltos básicos progressivos','Baixo → médio; manter controlo',20,40,3,20,40,4),ex('Saltos básicos altos','Qualidade e eixo',20,50,3,20,50,4),ex('Abertura/fecho dinâmica','Carpa P7: afastadas, juntas e posição engrupada',20,40,3,20,40,4),ex('3 saltos progressivos + estabilização','Terminar imóvel',15,45,3,15,45,4)]},
-  {name:'Força',items:[ex('Agachamento búlgaro','Carga moderada',30,30,2,40,25,3,'Agachamento búlgaro'),ex('Peso morto romeno','Anca para trás',30,30,2,40,25,3,'Peso morto romeno'),ex('Elevação da bacia','Extensão completa da anca',30,30,2,40,25,3,'Elevação da bacia'),ex('Remada','Escápulas ativas',30,30,2,40,25,3,'Remada'),ex('Press anti-rotação','Tronco imóvel',30,30,2,35,25,3,'Press anti-rotação'),ex('Gémeos','Amplitude completa',30,25,2,35,25,3)]},
+  {name:'Força',items:[ex('Agachamento búlgaro','Peso corporal ou um halter em cada mão',30,30,2,40,25,3,'Agachamento búlgaro'),ex('Peso morto romeno com halteres','Um halter em cada mão; anca para trás',30,30,2,40,25,3),ex('Ponte de glúteos no solo','Peso corporal; extensão completa da anca',30,30,2,40,25,3),ex('Remada unilateral com halter','Um braço de cada vez; escápula ativa',30,30,2,40,25,3),ex('Prancha com toque nos ombros','Alternar as mãos sem rodar a bacia; peso corporal',30,30,2,35,25,3),ex('Gémeos','Amplitude completa',30,25,2,35,25,3)]},
   finalStretching()
  ]},
  {key:'sex',label:'6.ª',title:'6.ª feira — Escadas + circuito gímnico',goal:'Trabalhar resistência muscular, coordenação, básicos no solo e resistência específica.',load:'60–65%',meta:['150 min','Escadas','Circuito gímnico','Resistência específica'],sections:[
@@ -255,7 +256,7 @@ const daysData=[
    ex('Rolamento à frente','Limpo e controlado',35,25,2,40,20,3),ex('Rolamento atrás','Mãos bem posicionadas',35,25,2,40,20,3),ex('Rolamento — pernas afastadas','Joelhos estendidos',35,25,2,40,20,3),ex('Pino','Parede ou livre conforme nível',35,25,2,40,20,3),ex('Ponte','Ombros abertos',35,25,2,40,20,3),ex('Roda','Linha corporal',35,25,2,40,20,3),ex('Hollow / Arch','Forma corporal',35,25,2,40,20,3,'Hollow / Arch'),ex('Vela','Alinhamento',35,25,2,40,20,3),ex('Pino → rolamento','Só para ginastas tecnicamente preparados',25,35,2,30,30,2)
   ]},
   {name:'Trampolim — resistência específica',items:[ex('Skipping baixo','Frequência',25,35,3,30,30,3),ex('Skipping alto','Coordenação',20,40,3,30,30,3),ex('Saltos de extensão baixos','Ritmo constante e altura baixa',30,30,3,45,25,3),ex('Abertura/fecho','Carpa P7: afastadas, juntas e posição engrupada',25,35,3,30,30,3),ex('Saltos com braços','Braços em cima, em baixo e lateralmente — 10 s cada',30,30,3,40,30,3),ex('6 velas + receção','Seis velas e terminar com receção estável',20,40,3,25,35,3)]},
-  {name:'Resistência muscular',items:[ex('Agachamento','Sem carga máxima',30,30,2,40,20,2),ex('Remada','Escápulas ativas',30,30,2,40,20,2,'Remada'),ex('Flexões','Corpo alinhado',30,30,2,40,20,2,'Flexões'),ex('Ponte de glúteos','Glúteos ativos',30,30,2,40,20,2,'Ponte de glúteos'),ex('Prancha lateral','Anca alta',25,25,2,35,20,2,'Prancha lateral'),ex('Tibial anterior','Controlo',30,30,2,40,20,2,'Tibial anterior'),ex('Y-T-W','Qualidade do ombro',30,30,2,35,25,2,'Y-T-W')]
+  {name:'Resistência muscular',items:[ex('Agachamento','Peso corporal; sem carga máxima',30,30,2,40,20,2),ex('Remada unilateral com halter','Um braço de cada vez; escápula ativa',30,30,2,40,20,2),ex('Flexões','Corpo alinhado',30,30,2,40,20,2,'Flexões'),ex('Ponte de glúteos','Glúteos ativos',30,30,2,40,20,2,'Ponte de glúteos'),ex('Prancha lateral','Anca alta',25,25,2,35,20,2,'Prancha lateral'),ex('Tibial anterior','Controlo',30,30,2,40,20,2,'Tibial anterior'),ex('Y-T-W','Qualidade do ombro',30,30,2,35,25,2,'Y-T-W')]
   },
   finalStretching()
  ]}
@@ -267,9 +268,6 @@ const embedFallbacks={
   'Y-T-W':'https://www.youtube.com/watch?v=QdGTI4Lshg4',
   'Saltos reativos de tornozelo':'https://www.youtube.com/watch?v=c2LBofIzUqs',
   'Salto horizontal + receção':'https://www.youtube.com/watch?v=Fhz-s_Hqo8I',
-  'Bola medicinal acima da cabeça':'https://www.youtube.com/watch?v=SW07AK5Qu3U',
-  'Elevação da bacia':'https://www.youtube.com/watch?v=_0APnBNNTfw',
-  'Press anti-rotação':'https://www.youtube.com/watch?v=axgv7H_VQOo',
   'Tibial anterior':'https://www.youtube.com/watch?v=nn0avIe473A',
   'Prancha lateral':'https://www.youtube.com/watch?v=XikKcxB0qf0',
   'Copenhagen':'https://www.youtube.com/watch?v=VfjAmomtVa0',
