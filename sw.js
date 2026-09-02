@@ -1,4 +1,4 @@
-const CACHE='aae-treino-v11-flexibilidade-videos';
+const CACHE='aae-treino-v12-videos-equipamento';
 const ASSETS=['./','./index.html','./manifest.json','./icon-192.png','./icon-512.png'];
 self.addEventListener('install',event=>{
   self.skipWaiting();
