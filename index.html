@@ -59,7 +59,7 @@
 <div class="app">
 <header>
   <div class="topline">
-    <div class="brand"><div class="mark">AAE</div><div><h1>Trampolins — Semana 1</h1><div class="sub">Regresso aos treinos · v2 com vídeos demonstrativos</div></div></div>
+    <div class="brand"><div class="mark">AAE</div><div><h1>Trampolins — Semana 1</h1><div class="sub">Regresso aos treinos · 150 min com vídeos específicos</div></div></div>
     <div class="group-switch"><button id="g1b" class="active" onclick="setGroup('1B')">1B</button><button id="g1a" onclick="setGroup('1A')">1A</button></div>
   </div>
   <div class="days" id="days"></div>
@@ -120,8 +120,6 @@ const videos={
   'Rolamento à frente — pernas afastadas':'https://www.youtube.com/watch?v=lQNM-Ryru-A',
   'Rolamento — pernas afastadas':'https://www.youtube.com/watch?v=lQNM-Ryru-A',
   'Pino à parede':'https://www.youtube.com/watch?v=F3EH9pxNSGs',
-  'Pino':'https://www.youtube.com/watch?v=F3EH9pxNSGs',
-  'Pino livre / com ajuda':'https://www.youtube.com/watch?v=F3EH9pxNSGs',
   'Pino → rolamento à frente':'https://www.youtube.com/watch?v=QDDx8CL2NKg',
   'Pino → rolamento':'https://www.youtube.com/watch?v=QDDx8CL2NKg',
   'Ponte':'https://gymnasticshq.com/how-to-do-a-bridge/',
@@ -129,19 +127,39 @@ const videos={
   'Roda':'https://www.youtube.com/watch?v=a_zI6XrUEHk',
   'Vela':'https://www.youtube.com/watch?v=AbfOTH7MXOE',
   'Snap-down / queda para receção':'https://www.youtube.com/watch?v=7r-UOQi8YvE',
-  'Pique':'https://www.youtube.com/watch?v=LAYLvbq_ILo',
-  'Afastamento de pernas':'https://www.youtube.com/watch?v=LAYLvbq_ILo',
-  'Afastamento':'https://www.youtube.com/watch?v=LAYLvbq_ILo',
-  'Espargata direita':'https://www.youtube.com/watch?v=LAYLvbq_ILo',
-  'Espargata esquerda':'https://www.youtube.com/watch?v=LAYLvbq_ILo',
-  'Flexores da anca':'https://www.youtube.com/watch?v=LAYLvbq_ILo',
-  'Elevação ativa da perna':'https://www.youtube.com/watch?v=JhqNfy_yono',
-  'Ombros':'https://www.youtube.com/watch?v=JhqNfy_yono',
-  'Ombros / ponte leve':'https://www.youtube.com/watch?v=JhqNfy_yono'
+  'Flexão do tronco à frente em pé':'https://www.youtube.com/watch?v=ZbpwzA3AuI8',
+  'Pique sentado dinâmico':'https://www.youtube.com/watch?v=wVdOp3h1nog',
+  'Mobilidade dos ombros com bastão':'https://www.youtube.com/watch?v=JNLEgxngOt8',
+  'Agachamento controlado':'https://www.youtube.com/watch?v=m0GcZ24pK6k',
+  'Afundo dinâmico alternado':'https://www.youtube.com/watch?v=5frs7_F2SrU',
+  'Alongamento posterior da coxa deitado':'https://www.youtube.com/watch?v=mQHbVIiufFI',
+  'Alongamento dos flexores da anca':'https://www.youtube.com/watch?v=neWgAwVnMSY',
+  'Alongamento dos gémeos à parede':'https://www.youtube.com/watch?v=GMYWcUVNNRs',
+  'Alongamento de adutores sentado':'https://www.youtube.com/watch?v=z3vQ3aTJVn0',
+  'Alongamento de ombro cruzado':'https://www.youtube.com/watch?v=mMOzQRRZI0k',
+  'Posição da criança':'https://www.youtube.com/watch?v=DtbnnG_OyIk'
 };
 
+function groundWarmup(){return {name:'Flexibilidade inicial no solo — mobilidade e controlo',items:[
+  ex('Flexão do tronco à frente em pé','Movimento contínuo; alongar sem dor e sem bloquear os joelhos',35,15,1,40,15,1),
+  ex('Pique sentado dinâmico','Tronco longo; avançar e regressar sem balanços bruscos',35,15,1,40,15,1),
+  ex('Mobilidade dos ombros com bastão','Braços estendidos; pega larga e amplitude confortável',40,15,1,45,15,1),
+  ex('Agachamento controlado','Pés apoiados; joelhos alinhados com os pés e amplitude progressiva',40,15,1,45,15,1),
+  ex('Afundo dinâmico alternado','Tronco alto; alternar lados e manter o joelho estável',40,15,1,45,15,1),
+  ex('Receção baixa + equilíbrio','Flexão suave da anca e dos joelhos; estabilizar antes de repetir',30,20,1,35,20,1,'Snap-down / queda para receção')
+]}}
+
+function finalStretching(){return {name:'Alongamentos finais',items:[
+  ex('Alongamento posterior da coxa deitado','Manter a bacia estável; alongar sem dor',30,15,2,35,15,2),
+  ex('Alongamento dos flexores da anca','Bacia neutra; um lado de cada vez',30,15,2,35,15,2),
+  ex('Alongamento dos gémeos à parede','Calcanhar apoiado e joelho alinhado',30,15,2,35,15,2),
+  ex('Alongamento de adutores sentado','Costas longas e amplitude confortável',35,15,1,40,15,1),
+  ex('Alongamento de ombro cruzado','Ombro baixo; sem pressão sobre a articulação',25,15,2,30,15,2),
+  ex('Posição da criança','Respiração lenta; relaxar ombros e costas sem forçar',60,0,1,75,0,1)
+]}}
+
 const daysData=[
- {key:'seg',label:'2.ª',title:'2.ª feira — Readaptação + força',goal:'Reativar mobilidade, básicos de ginástica, sensação de trampolim e força geral.',load:'55–60%',meta:['120 min','Ginástica básica','Trampolim básico','Força geral'],sections:[
+ {key:'seg',label:'2.ª',title:'2.ª feira — Readaptação + força',goal:'Reativar mobilidade, básicos de ginástica, sensação de trampolim e força geral.',load:'55–60%',meta:['150 min','Ginástica básica','Trampolim básico','Força geral'],sections:[
   {name:'Aquecimento geral',items:[
    ex('Corrida ligeira','Elevar a temperatura sem fadiga',120,0,1,120,0,1),
    ex('Deslocamento lateral','Postura alta e passos curtos',60,15,1,60,15,1),
@@ -149,10 +167,8 @@ const daysData=[
    ex('Skipping no solo','Frequência e coordenação',30,20,1,30,20,1),
    ex('Calcanhares aos glúteos','Ritmo confortável',30,20,1,30,20,1)
   ]},
-  {name:'Mobilidade e ativação',items:[
-   ex('Joelho à parede','Calcanhar sempre no chão',40,15,2,40,15,2),
-   ex('Afundo com rotação','Amplitude progressiva',45,15,1,45,15,1),
-   ex('Agachamento profundo','Manter calcanhares apoiados',30,15,1,30,15,1),
+  groundWarmup(),
+  {name:'Ativação',items:[
    ex('Ponte de glúteos','Contrair glúteos no topo',30,20,2,35,20,2,'Ponte de glúteos'),
    ex('Alternância braço-perna deitado','Lombar estável',30,20,2,35,20,2,'Alternância braço-perna deitado'),
    ex('Y-T-W','Ombros baixos e escápulas ativas',40,20,1,45,20,1,'Y-T-W')
@@ -180,17 +196,11 @@ const daysData=[
    ex('Gémeos','Amplitude completa',30,20,2,30,20,3),
    ex('Prancha frontal','Linha ombro-anca-pé',25,30,2,35,30,3)
   ]},
-  {name:'Flexibilidade',items:[
-   ex('Pique','Alongar sem dor',30,20,1,30,20,1),
-   ex('Afastamento de pernas','Amplitude confortável',30,20,1,30,20,1),
-   ex('Espargata direita','Sem ajuda forçada',25,20,1,30,20,1),
-   ex('Espargata esquerda','Sem ajuda forçada',25,20,1,30,20,1),
-   ex('Flexores da anca','Bacia controlada',30,15,2,30,15,2),
-   ex('Ombros','Amplitude progressiva',30,15,1,30,15,1)
-  ]}
+  finalStretching()
  ]},
- {key:'ter',label:'3.ª',title:'3.ª feira — Resistência + rolamentos',goal:'Recuperar capacidade aeróbia, resistência muscular e qualidade dos rolamentos.',load:'60–65%',meta:['120 min','15–20 min corrida','Ginástica básica','Resistência muscular'],sections:[
-  {name:'Aquecimento',items:[ex('Corrida muito ligeira','Ritmo fácil',180,0,1,180,0,1),ex('Mobilidade dinâmica','Tornozelo, anca, ombros e coluna',300,0,1,300,0,1)]},
+ {key:'ter',label:'3.ª',title:'3.ª feira — Resistência + rolamentos',goal:'Recuperar capacidade aeróbia, resistência muscular e qualidade dos rolamentos.',load:'60–65%',meta:['150 min','15–20 min corrida','Ginástica básica','Resistência muscular'],sections:[
+  {name:'Aquecimento',items:[ex('Corrida muito ligeira','Ritmo fácil',180,0,1,180,0,1)]},
+  groundWarmup(),
   {name:'Corrida de resistência',items:[ex('Corrida contínua','Ritmo de conversa; não é teste',900,180,1,1200,180,1)]},
   {name:'Ginástica básica',items:[
    ex('Rolamento à frente','Execução limpa',40,30,2,40,30,2),
@@ -209,20 +219,22 @@ const daysData=[
   {name:'Resistência muscular',items:[
    ex('Afundos alternados','Passo estável',30,30,2,35,25,3),ex('Flexões','Linha corporal',30,30,2,35,25,3,'Flexões'),ex('Remada','Escápulas ativas',30,30,2,35,25,3,'Remada'),ex('Gémeos','Amplitude completa',30,30,2,35,25,3),ex('Prancha lateral','Anca alta',25,20,2,30,20,3,'Prancha lateral'),ex('Tibial anterior','Subir antepé controladamente',30,30,2,35,25,3,'Tibial anterior')
   ]},
-  {name:'Flexibilidade',items:[ex('Pique','Sem dor',30,20,1,30,20,1),ex('Afastamento','Amplitude controlada',30,20,1,30,20,1),ex('Espargata direita','Autónoma',30,20,1,30,20,1),ex('Espargata esquerda','Autónoma',30,20,1,30,20,1),ex('Elevação ativa da perna','Joelho estendido',30,15,2,30,15,2)]}
+  finalStretching()
  ]},
- {key:'qua',label:'4.ª',title:'4.ª feira — Recuperação + flexibilidade',goal:'Reduzir carga mecânica, recuperar mobilidade e consolidar posições corporais.',load:'45–50%',meta:['120 min','Recuperação ativa','Ponte + pino','Prevenção'],sections:[
+ {key:'qua',label:'4.ª',title:'4.ª feira — Recuperação + flexibilidade',goal:'Reduzir carga mecânica, recuperar mobilidade e consolidar posições corporais.',load:'45–50%',meta:['150 min','Recuperação ativa','Ponte + pino','Prevenção'],sections:[
   {name:'Recuperação ativa',items:[ex('Corrida muito leve','3–4/10 de esforço',600,120,1,600,120,1)]},
-  {name:'Mobilidade e flexibilidade',items:[ex('Tornozelo','Joelho à parede',40,15,2,40,15,2),ex('Posterior da coxa','Alongamento confortável',30,15,2,30,15,2),ex('Flexores da anca','Bacia neutra',30,15,2,30,15,2),ex('Afastamento','Amplitude sem forçar',30,20,2,30,20,2),ex('Ombros','Mobilidade antes da ponte',40,20,2,40,20,2)]},
+  groundWarmup(),
+  {name:'Flexibilidade complementar',items:[ex('Tornozelo','Joelho à parede',40,15,2,40,15,2),ex('Posterior da coxa','Alongamento confortável',30,15,2,30,15,2),ex('Flexores da anca','Bacia neutra',30,15,2,30,15,2),ex('Afastamento','Amplitude sem forçar',30,20,2,30,20,2)]},
   {name:'Ginástica de controlo',items:[
    ex('Ponte','Braços estendidos; abrir ombros, não forçar lombar',20,45,3,30,45,3),ex('Vela','Alinhamento',20,20,2,30,20,2),ex('Hollow / Arch','Controlo do tronco',20,20,2,30,20,2,'Hollow / Arch'),ex('Pino à parede','Qualidade de linha',20,45,2,30,45,2),ex('Equilíbrio numa perna','Estabilidade do pé e tornozelo',30,15,2,30,15,2,'Equilíbrio numa perna')
   ]},
   {name:'Trampolim leve',items:[ex('Skipping baixo','Baixa intensidade',20,40,3,20,40,3),ex('Saltos de extensão baixos','Centro do trampolim e altura baixa',30,30,3,30,30,3),ex('Saltos com braços','Braços em cima, em baixo e lateralmente — 10 s cada',30,30,3,30,30,3),ex('Deslocamentos pequenos frente/trás','Mínima amplitude',20,40,3,20,40,3),ex('Deslocamentos laterais','Controlados',20,40,3,20,40,3),ex('6 velas + receção','Seis velas e terminar com receção estável',20,40,3,20,40,3)]},
-  {name:'Prevenção',items:[ex('Gémeos — joelho estendido','Controlo',30,20,2,30,20,2),ex('Gémeos — joelho fletido','Foco no sóleo',30,20,2,30,20,2),ex('Tibial anterior','Subir antepé',30,20,2,30,20,2,'Tibial anterior'),ex('Copenhagen','Joelho apoiado',20,20,2,25,20,2,'Copenhagen'),ex('Press anti-rotação','Tronco imóvel',30,20,2,30,20,2,'Press anti-rotação'),ex('Y-T-W','Escápulas ativas',40,20,2,40,20,2,'Y-T-W')]
-  }
+  {name:'Prevenção',items:[ex('Gémeos — joelho estendido','Controlo',30,20,2,30,20,2),ex('Gémeos — joelho fletido','Foco no sóleo',30,20,2,30,20,2),ex('Tibial anterior','Subir antepé',30,20,2,30,20,2,'Tibial anterior'),ex('Copenhagen','Joelho apoiado',20,20,2,25,20,2,'Copenhagen'),ex('Press anti-rotação','Tronco imóvel',30,20,2,30,20,2,'Press anti-rotação'),ex('Y-T-W','Escápulas ativas',40,20,2,40,20,2,'Y-T-W')]},
+  finalStretching()
  ]},
- {key:'qui',label:'5.ª',title:'5.ª feira — Pino + potência + força',goal:'Reintroduzir produção rápida de força, pino e progressão para pino-rolamento.',load:'65–70%',meta:['120 min','Pino','Potência','Força'],sections:[
-  {name:'Aquecimento e mobilidade',items:[ex('Aquecimento geral','Corrida ligeira + mobilidade dinâmica',600,0,1,600,0,1),ex('Mobilidade específica','Ombros, punhos, tornozelos e anca',420,0,1,480,0,1)]},
+ {key:'qui',label:'5.ª',title:'5.ª feira — Pino + potência + força',goal:'Reintroduzir produção rápida de força, pino e progressão para pino-rolamento.',load:'65–70%',meta:['150 min','Pino','Potência','Força'],sections:[
+  {name:'Aquecimento geral',items:[ex('Corrida ligeira e ativação geral','Elevar gradualmente a temperatura sem fadiga',600,0,1,600,0,1)]},
+  groundWarmup(),
   {name:'Ginástica — pino',items:[
    ex('Pino à parede','Braços estendidos, corpo apertado',20,40,2,30,40,2),ex('Pino livre / com ajuda','Tentativas curtas e de qualidade',8,25,5,10,25,6),ex('Pino → rolamento à frente','Só se pino e rolamento forem seguros',10,50,4,12,40,5),ex('Snap-down / queda para receção','Chegar ao chão e estabilizar',12,45,2,15,45,3)
   ]},
@@ -231,10 +243,11 @@ const daysData=[
   ]},
   {name:'Trampolim — potência controlada',items:[ex('Skipping rápido','Máxima frequência com postura',15,45,3,15,45,4),ex('Skipping alto','Joelhos altos',20,40,3,20,40,4),ex('Saltos básicos progressivos','Baixo → médio; manter controlo',20,40,3,20,40,4),ex('Saltos básicos altos','Qualidade e eixo',20,50,3,20,50,4),ex('Abertura/fecho dinâmica','Carpa P7: afastadas, juntas e posição engrupada',20,40,3,20,40,4),ex('3 saltos progressivos + estabilização','Terminar imóvel',15,45,3,15,45,4)]},
   {name:'Força',items:[ex('Agachamento búlgaro','Carga moderada',30,30,2,40,25,3,'Agachamento búlgaro'),ex('Peso morto romeno','Anca para trás',30,30,2,40,25,3,'Peso morto romeno'),ex('Elevação da bacia','Extensão completa da anca',30,30,2,40,25,3,'Elevação da bacia'),ex('Remada','Escápulas ativas',30,30,2,40,25,3,'Remada'),ex('Press anti-rotação','Tronco imóvel',30,30,2,35,25,3,'Press anti-rotação'),ex('Gémeos','Amplitude completa',30,25,2,35,25,3)]},
-  {name:'Flexibilidade',items:[ex('Pique','Sem dor',30,20,1,30,20,1),ex('Afastamento','Controlado',30,20,1,30,20,1),ex('Espargata direita','Autónoma',30,20,1,30,20,1),ex('Espargata esquerda','Autónoma',30,20,1,30,20,1),ex('Ombros / ponte leve','Sem forçar lombar',30,20,1,30,20,1)]}
+  finalStretching()
  ]},
- {key:'sex',label:'6.ª',title:'6.ª feira — Escadas + circuito gímnico',goal:'Trabalhar resistência muscular, coordenação, básicos no solo e resistência específica.',load:'60–65%',meta:['120 min','Escadas','Circuito gímnico','Resistência específica'],sections:[
-  {name:'Aquecimento',items:[ex('Corrida ligeira','Ritmo fácil',180,0,1,180,0,1),ex('Mobilidade dinâmica','Tornozelo, joelho, anca e ombros',420,0,1,420,0,1)]},
+ {key:'sex',label:'6.ª',title:'6.ª feira — Escadas + circuito gímnico',goal:'Trabalhar resistência muscular, coordenação, básicos no solo e resistência específica.',load:'60–65%',meta:['150 min','Escadas','Circuito gímnico','Resistência específica'],sections:[
+  {name:'Aquecimento',items:[ex('Corrida ligeira','Ritmo fácil',180,0,1,180,0,1)]},
+  groundWarmup(),
   {name:'Escadas',items:[
    ex('Subida normal','Descer sempre a andar',20,60,3,25,55,3),ex('Dois degraus de cada vez','Subida controlada',20,70,2,20,65,3),ex('Subida rápida','Rápida a subir; nunca correr a descer',15,75,2,20,80,2)
   ]},
@@ -244,7 +257,7 @@ const daysData=[
   {name:'Trampolim — resistência específica',items:[ex('Skipping baixo','Frequência',25,35,3,30,30,3),ex('Skipping alto','Coordenação',20,40,3,30,30,3),ex('Saltos de extensão baixos','Ritmo constante e altura baixa',30,30,3,45,25,3),ex('Abertura/fecho','Carpa P7: afastadas, juntas e posição engrupada',25,35,3,30,30,3),ex('Saltos com braços','Braços em cima, em baixo e lateralmente — 10 s cada',30,30,3,40,30,3),ex('6 velas + receção','Seis velas e terminar com receção estável',20,40,3,25,35,3)]},
   {name:'Resistência muscular',items:[ex('Agachamento','Sem carga máxima',30,30,2,40,20,2),ex('Remada','Escápulas ativas',30,30,2,40,20,2,'Remada'),ex('Flexões','Corpo alinhado',30,30,2,40,20,2,'Flexões'),ex('Ponte de glúteos','Glúteos ativos',30,30,2,40,20,2,'Ponte de glúteos'),ex('Prancha lateral','Anca alta',25,25,2,35,20,2,'Prancha lateral'),ex('Tibial anterior','Controlo',30,30,2,40,20,2,'Tibial anterior'),ex('Y-T-W','Qualidade do ombro',30,30,2,35,25,2,'Y-T-W')]
   },
-  {name:'Flexibilidade final',items:[ex('Pique','Sem dor',30,15,2,30,15,2),ex('Afastamento','Amplitude confortável',30,15,2,30,15,2),ex('Espargata direita','Autónoma',30,15,2,30,15,2),ex('Espargata esquerda','Autónoma',30,15,2,30,15,2),ex('Flexores da anca','Bacia neutra',30,15,2,30,15,2),ex('Ombros','Progressivo',30,15,2,30,15,2),ex('Ponte leve','Só se confortável',20,30,1,25,30,1)]}
+  finalStretching()
  ]}
 ];
 function ex(name,cue,wB,rB,nB,wA,rA,nA,videoKey){return {name,cue,'1B':{w:wB,r:rB,n:nB},'1A':{w:wA,r:rA,n:nA},video:videos[videoKey||name]||null}}
@@ -263,11 +276,8 @@ const embedFallbacks={
   'Ponte':'https://www.youtube.com/watch?v=otoDVplyg9w',
   'Ponte leve':'https://www.youtube.com/watch?v=otoDVplyg9w'
 };
-function relatedDemo(name){
-  if(/rolamento/i.test(name))return videos['Rolamento à frente'];if(/pino/i.test(name))return videos['Pino à parede'];if(/ponte|anca|glúteo/i.test(name))return videos['Ponte de glúteos'];if(/salto|trampolim|skipping|abertura|estabilização|deslocamento|receção/i.test(name))return videos['Salto vertical com contramovimento'];if(/corrida|escada|subida/i.test(name))return videos['Saltos reativos de tornozelo'];if(/agachamento|afundo/i.test(name))return videos['Agachamento com halter'];if(/peso morto|posterior/i.test(name))return videos['Peso morto romeno'];if(/remada|y-t-w|ombro/i.test(name))return videos['Remada'];if(/flexões/i.test(name))return videos['Flexões'];if(/prancha|hollow|arch|anti-rotação|copenhagen/i.test(name))return videos['Hollow / Arch'];if(/roda/i.test(name))return videos['Roda'];if(/vela/i.test(name))return videos['Vela'];if(/pique|afastamento|espargata|flexor|perna|mobilidade|tornozelo|gémeos|tibial/i.test(name))return videos['Pique'];return videos['Hollow / Arch'];
-}
-function demoUrl(name,original){return embedFallbacks[name]||original||relatedDemo(name)}
-function embedUrl(url){let match=url&&url.match(/(?:youtu\.be\/|youtube\.com\/(?:watch\?v=|embed\/))([\w-]{11})/);if(match)return `https://www.youtube-nocookie.com/embed/${match[1]}?autoplay=1&mute=1&loop=1&playlist=${match[1]}&controls=1&playsinline=1&rel=0&enablejsapi=1`;match=url&&url.match(/vimeo\.com\/(?:video\/)?(\d+)/);if(match)return `https://player.vimeo.com/video/${match[1]}?autoplay=1&muted=1&loop=1&playsinline=1&title=0&byline=0&portrait=0&api=1`;return embedUrl(videos['Hollow / Arch'])}
+function demoUrl(name,original){return original?(embedFallbacks[name]||original):null}
+function embedUrl(url){let match=url&&url.match(/(?:youtu\.be\/|youtube\.com\/(?:watch\?v=|embed\/))([\w-]{11})/);if(match)return `https://www.youtube-nocookie.com/embed/${match[1]}?autoplay=1&mute=1&loop=1&playlist=${match[1]}&controls=1&playsinline=1&rel=0&enablejsapi=1`;match=url&&url.match(/vimeo\.com\/(?:video\/)?(\d+)/);if(match)return `https://player.vimeo.com/video/${match[1]}?autoplay=1&muted=1&loop=1&playsinline=1&title=0&byline=0&portrait=0&api=1`;return null}
 let group=localStorage.getItem('aae_group')||'1B'; let dayKey=localStorage.getItem('aae_day')||'seg';
 function storeKey(suffix){return `aae_w1_${group}_${dayKey}_${suffix}`}
 function fmt(s){ if(!s) return '—'; if(s>=60){let m=Math.floor(s/60),sec=s%60; return sec?`${m} min ${sec} s`:`${m} min`;} return `${s} s`; }
@@ -288,10 +298,10 @@ function loadSessionMeta(){let v=JSON.parse(localStorage.getItem(storeKey('sessi
 function resetDay(){if(!confirm('Limpar todos os registos deste dia para '+group+'?'))return;let n=countItems();for(let i=1;i<=n;i++)localStorage.removeItem(storeKey('ex_'+i));localStorage.removeItem(storeKey('session'));render()}
 let timer={name:'',work:30,rest:30,rounds:1,round:1,phase:'Trabalho',left:30,id:null,running:false,started:false,restartVideo:false,video:''};
 function openTimer(name,w,r,n,video){timerClose();timer={name,work:w,rest:r,rounds:n,round:1,phase:'Trabalho',left:w,id:null,running:false,started:false,restartVideo:false,video};document.getElementById('timerModal').classList.add('show');paintTimer()}
-function ensureTimerFrame(){const media=document.getElementById('timerMedia');let frame=media.querySelector('iframe');if(frame)return frame;frame=document.createElement('iframe');frame.src=embedUrl(timer.video);frame.title=`Demonstração: ${timer.name}`;frame.allow='autoplay; encrypted-media; picture-in-picture';frame.allowFullscreen=true;media.appendChild(frame);return frame}
+function ensureTimerFrame(){const media=document.getElementById('timerMedia');let frame=media.querySelector('iframe');if(frame)return frame;const src=embedUrl(timer.video);if(!src)return null;frame=document.createElement('iframe');frame.src=src;frame.title=`Demonstração: ${timer.name}`;frame.allow='autoplay; encrypted-media; picture-in-picture';frame.allowFullscreen=true;media.appendChild(frame);return frame}
 function controlTimerVideo(action,restart=false){const frame=document.querySelector('#timerMedia iframe');if(!frame||!frame.contentWindow)return;const isYoutube=frame.src.includes('youtube');if(isYoutube){if(restart)frame.contentWindow.postMessage(JSON.stringify({event:'command',func:'seekTo',args:[0,true]}),'*');frame.contentWindow.postMessage(JSON.stringify({event:'command',func:action==='play'?'playVideo':'pauseVideo',args:[]}),'*')}else{if(restart)frame.contentWindow.postMessage({method:'setCurrentTime',value:0},'*');frame.contentWindow.postMessage({method:action},'*')}}
-function showTimerMedia(){const media=document.getElementById('timerMedia');media.className='timer-media';if(timer.phase==='Descanso'){media.classList.add('resting');controlTimerVideo('pause');return}if(timer.phase!=='Trabalho'||(timer.started&&!timer.running)){media.classList.add('hidden');controlTimerVideo('pause');return}ensureTimerFrame();media.classList.add(timer.running?'playing':'preparing');controlTimerVideo('play',timer.restartVideo);timer.restartVideo=false}
-function paintTimer(){document.getElementById('timerName').textContent=timer.name;document.getElementById('timerPhase').textContent=timer.phase==='Trabalho'&&!timer.started?'Preparação — o tempo ainda não começou':timer.phase;let m=String(Math.floor(timer.left/60)).padStart(2,'0'),s=String(timer.left%60).padStart(2,'0');document.getElementById('clock').textContent=`${m}:${s}`;document.getElementById('roundInfo').textContent=timer.phase==='Trabalho'&&!timer.started?'Aguarde o exercício aparecer e depois carregue no botão':`Bloco ${timer.round} de ${timer.rounds}`;document.getElementById('startBtn').textContent=timer.running?'A decorrer':!timer.started?'Começar exercício':timer.phase==='Concluído'?'Concluído':'Retomar';const media=document.getElementById('timerMedia');const wanted=timer.phase==='Descanso'?'resting':timer.phase==='Trabalho'&&!timer.started?'preparing':timer.phase==='Trabalho'&&timer.running?'playing':'hidden';if(!media.classList.contains(wanted))showTimerMedia()}
+function showTimerMedia(){const media=document.getElementById('timerMedia');media.className='timer-media';if(timer.phase==='Descanso'){media.classList.add('resting');controlTimerVideo('pause');return}if(!timer.video||timer.phase!=='Trabalho'||(timer.started&&!timer.running)){media.classList.add('hidden');controlTimerVideo('pause');return}if(!ensureTimerFrame()){media.classList.add('hidden');return}media.classList.add(timer.running?'playing':'preparing');controlTimerVideo('play',timer.restartVideo);timer.restartVideo=false}
+function paintTimer(){const preparing=timer.phase==='Trabalho'&&!timer.started;document.getElementById('timerName').textContent=timer.name;document.getElementById('timerPhase').textContent=preparing?(timer.video?'Preparação — o tempo ainda não começou':'Pronto para começar'):timer.phase;let m=String(Math.floor(timer.left/60)).padStart(2,'0'),s=String(timer.left%60).padStart(2,'0');document.getElementById('clock').textContent=`${m}:${s}`;document.getElementById('roundInfo').textContent=preparing?(timer.video?'Aguarde o exercício aparecer e depois carregue no botão':'Carregue no botão para iniciar o cronómetro'):`Bloco ${timer.round} de ${timer.rounds}`;document.getElementById('startBtn').textContent=timer.running?'A decorrer':!timer.started?(timer.video?'Começar exercício':'Começar') :timer.phase==='Concluído'?'Concluído':'Retomar';const media=document.getElementById('timerMedia');const wanted=timer.phase==='Descanso'?'resting':!timer.video?'hidden':timer.phase==='Trabalho'&&!timer.started?'preparing':timer.phase==='Trabalho'&&timer.running?'playing':'hidden';if(!media.classList.contains(wanted))showTimerMedia()}
 function timerStart(){if(timer.running||timer.phase==='Concluído')return;timer.running=true;timer.started=true;paintTimer();timer.id=setInterval(()=>{timer.left--;if(timer.left<=0){if(timer.phase==='Trabalho'&&timer.rest>0){timer.phase='Descanso';timer.left=timer.rest}else if(timer.round<timer.rounds){timer.round++;timer.phase='Trabalho';timer.left=timer.work;timer.restartVideo=true}else{clearInterval(timer.id);timer.id=null;timer.running=false;timer.phase='Concluído';timer.left=0} }paintTimer()},1000)}
 function timerPause(){if(timer.id){clearInterval(timer.id);timer.id=null}timer.running=false;showTimerMedia();paintTimer()}
 function timerClose(){if(timer.id)clearInterval(timer.id);timer.id=null;timer.running=false;const media=document.getElementById('timerMedia');media.querySelectorAll('iframe').forEach(el=>el.remove());media.className='timer-media hidden';document.getElementById('timerModal').classList.remove('show')}
